@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html >
+<head>
+    <title>CodeDesc Test</title>
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/js/syntaxhighlighter_3.0.83/styles/codemirror.css"/>
+    <link rel="stylesheet" href="/css/yui.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="y-codeDesc.js"></script>
+    <script type="text/javascript" src="/js/syntaxhighlighter_3.0.83/yJSBeautify.js"></script>
+    <style type="text/css">
+        .yui-commont{
+            color: #047103;
+        }
+        .yui-string{
+            color: #0f990c;
+        }
+        .yui-keyword{
+            color: #36d;
+        }
+        .yui-variable{
+            color: #000;
+        }
+        .yui-class{
+            color: #8c0776;
+        }
+        .yui-function{
+            color: #e09a00;
+            padding-left: 4px;
+        }
+        .yui-def{
+            color: #00f;
+        }
+        .yui-property{
+            color: #e09a00;
+        }
+        .yui-block{
+            padding-left: 16px;
+        }
+
+    </style>
+</head>
+<body>
+<h1>CodeDesc Test</h1>
+<div ng-app="codedesctest" ng-controller="codedescCtrl"  style="width: 500px;padding-left: 40px">
+    <div y-Code-Desc>
+
+    </div>
+
+</div>
+<div id="codedest">
+
+
+</div>
+
+<div>
+    <div><span class="yui-keyword">function</span><span class="yui-function">a</span>(a) {</div>
+    <div class="yui-block"><span class="yui-commont">//str type</span>
+        <div><span class="yui-keyword">var</span> tmp = <span class="yui-string">'aaaa'</span>;</div>
+        <div> console.log(tmp);</div>
+        <div><span class="yui-keyword">if</span> (a == null) {</div>
+        <div class="yui-block">
+            <div> a = <span class="yui-string">'a'</span>;</div>
+        </div>
+        <div>} <span class="yui-keyword">else</span> {</div>
+        <div class="yui-block">
+            <div> a = <span class="yui-string">'b'</span>;</div>
+        </div>
+        <div>}</div>
+    </div>
+    <div>}</div>
+
+</div>
+
+<div style="width: 500px;padding-left: 40px">
+    <div id="codebox" class="code-box">
+        <div class="code-box-demo">
+            <button type="button" class="ant-btn ant-btn-primary"><span>Primary</span></button>
+            <button type="button" class="ant-btn"><span>Default</span></button>
+            <button type="button" class="ant-btn ant-btn-ghost"><span>Ghost</span></button>
+            <button type="button" class="ant-btn ant-btn-dashed"><span>Dashed</span></button>
+        </div>
+        <div class="code-box-meta markdown">
+            <div class="code-box-title">
+                <a href="#components-button-demo-basic">按钮类型</a>
+                <a class="edit-button"
+                   href="https://github.com/ant-design/ant-design/blob/master/components/button/demo/basic.md">
+                    <i class="anticon anticon-edit"></i>
+                </a>
+            </div>
+            <div>
+                <p>
+                    <!-- react-text: 10400 -->按钮有四种类型：主按钮、       次按钮、幽灵按钮、虚线按钮。<!-- /react-text -->
+                </p>
+                <p>
+                    <!-- react-text: 10402 -->通过设置 <!-- /react-text -->
+                    <code><!-- react-text: 10404 -->type<!-- /react-text -->
+                    </code>
+                    <!-- react-text: 10405 --> 为 <!-- /react-text -->
+                    <code>
+                        <!-- react-text: 10407 -->primary<!-- /react-text -->
+                    </code>
+                    <!-- react-text: 10408 --><!-- /react-text -->
+                    <code>
+                        <!-- react-text: 10410 -->ghost<!-- /react-text -->
+                    </code>
+                    <!-- react-text: 10411 --> <!-- /react-text -->
+                    <code>
+                        <!-- react-text: 10413 -->dashed<!-- /react-text -->
+                    </code>
+                    <!-- react-text: 10414 --> 可分别创建主按钮、幽灵按钮、虚线按钮，若不设置<!-- /react-text -->
+                    <code>
+                        <!-- react-text: 10416 -->type<!-- /react-text -->
+                    </code>
+                    <!-- react-text: 10417 --> 值则为次按钮。不同的样式可以用来区别其重要程度。<!-- /react-text -->
+                </p>
+                <p>
+                    <!-- react-text: 10419 -->主按钮和次按钮可独立使用，幽灵按钮用于和主按钮组合。需要强引导用主按钮，切记主按钮在同一个操作区域最多出现一次。<!-- /react-text -->
+                </p>
+            </div>
+            <i title="Show Code" class="anticon anticon-down-circle-o collapse" cursor="hand" onclick="expandCodeBox()"></i>
+        </div>
+        <div class="highlight-wrapper-html">
+            <div>
+                <!--&lt;Button type="primary" &gt; Primary &lt;/Button&gt;-->
+                <div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre style="text-align: left;"><span>x</span></pre></div><div style="position: relative; z-index: 1; display: none;"><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 120px; width: 7.1875px; height: 12px;"></div><div class="CodeMirror-selected" style="position: absolute; left: 4px; top: 0px; width: 1389px; height: 120px;"></div></div><div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre><span class="cm-comment">// vartype</span></pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre><span class="cm-keyword">var</span> <span class="cm-variable">tmp</span> = <span class="cm-string">'aaa'</span>;</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre>&nbsp;</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre><span class="cm-keyword">function</span> <span class="cm-variable">abc</span>(<span class="cm-def">a1</span>, <span class="cm-def">a2</span>) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre>    <span class="cm-keyword">try</span> {</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre>        <span class="cm-variable">console</span>.<span class="cm-property">log</span>(<span class="cm-variable">tmp</span>);</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">8</div></div><pre>    <span class="cm-variable">cache</span>(<span class="cm-variable">ex</span>) {</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">9</div></div><pre>        <span class="cm-variable">alert</span>(<span class="cm-variable">ex</span>.<span class="cm-property">toString</span>());</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">10</div></div><pre>    }</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">11</div></div><pre>}</pre></div><div style="position: relative;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">12</div></div><pre>&nbsp;</pre></div><div style="position: relative; display: none;"><div style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre><span class="cm-comment">// vartype</span></pre></div></div><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 12px; visibility: hidden;">&nbsp;</div><div class="CodeMirror-cursor CodeMirror-secondarycursor" style="display: none; visibility: hidden;">&nbsp;</div></div></div>
+
+            </div>
+        </div>
+
+        <div class="highlight-wrapper-js">
+            <div>
+                <div><span class="yui-keyword">var</span> <span class="yui-variable">tmp</span> = <span class="yui-string">'aaa'</span>;</div>
+                <div><span class="yui-commont">//aaaaaaa</span></div>
+                <div><span class="yui-keyword">function</span> <span class="yui-function">abc</span>(<span class="yui-def">a1</span>,<span class="yui-def">a2</span>){</div>
+                <div style="padding-left: 16px;">
+                    <div><span class="yui-keyword">try</span>{</div>
+                    <div style="padding-left: 16px;">
+                        <div><span class="yui-class">console</span>.<span class="yui-function">log</span>(<span class="yui-variable">tmp</span>);</div>
+                    </div>
+                    <div>}<span class="yui-keyword">cache</span>(<span class="yui-variable">ex</span>){</div>
+                    <div style="padding-left: 16px;">
+                        <div><span class="yui-function">alert</span>(<span class="yui-variable">ex</span>.<span class="yui-function">toString</span>());</div>
+                    </div>
+                    <div>}</div>
+                </div>
+                <div>}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+    // aaa
+//    var app = angular.module("codedesctest", ['yCodeDescModule']);
+//
+//    app.controller("codedescCtrl", function ($scope) {
+//
+//    });
+//
+//    var ttt = {
+//        t:function () {
+//            console.log("aaaa");
+//        }
+//
+//    }
+    function expandCodeBox() {
+        var tmpcodebox=$("#codebox");
+        var tmpClassName = "expand";
+        var tmpCodeExpandClassName="highlight-wrapper-expand";
+        if(tmpcodebox.hasClass(tmpClassName)){
+            tmpcodebox.removeClass(tmpClassName);
+        }else{
+            tmpcodebox.addClass(tmpClassName);
+        }
+
+    }
+    var tmpcode = "/** \n\
+            * Created by syman on 17/1/30.\n\
+    */\n\
+    angular.module('yBtnModule',[]).directive('yBtn', function () {\n\
+        return {\n\
+            templateUrl:'y-button-Temp.html',\n\
+            replace: true,\n\
+            scope: {\n\
+                btntext: '@',\n\
+                tclick:'&'\n\
+            },\n\
+            controller: function () {\n\
+                //var tmpclassUnClick = 'ant-btn ant-btn-primary';\n\
+                //var tmpclassClick = 'ant-btn ant-btn-primary ant-btn-clicked';\n\
+                //var tmpclass = tmpclassUnClick;\n\
+            },\n\
+            link: function (scope, element, attrs) {\n\
+\n\
+                var tmpelementBtn = element;//angular.element(element.children().eq(0));\n\
+                // scope.tmpclassClick='ant-btn-clicked';\n\
+                // scope.tmpclass = scope.tmpclassUnClick;\n\
+                //scope.clickskin =\n\
+                tmpelementBtn.bind('click', clickskin);\n\
+                function clickskin() {\n\
+                    scope.tclick();\n\
+                    tmpelementBtn.addClass('ant-btn-clicked');\n\
+                    //scope.tmpclassClick='ant-btn-clicked';\n\
+                    //console.log({'scope':tmpscope});\n\
+                    //console.log({'element':tmpelement});\n\
+                    //console.log({'attrs':tmpattrs});\n\
+                    setTimeout(unClicked, 500);\n\
+                }\n\
+                //scope.unClicked =\n\
+                function unClicked() {\n\
+                    //scope.tmpclassClick='';\n\
+                    tmpelementBtn.removeClass('ant-btn-clicked');\n\
+                }\n\
+            }\n\
+        };\n\
+    });";
+    $("#codedest").html(js_highlight(tmpcode));
+    //$("#codedest").html(js_highlight("function a(a){ //str type\n\n  var tmp='aaaa';console.log(tmp);if(a==null){a='a';}else{a='b';}}",4,'  '));
+
+
+</script>
+
+</body>
+</html>

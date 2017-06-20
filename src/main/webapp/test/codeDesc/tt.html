@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" href="/js/syntaxhighlighter_3.0.83/styles/codemirror.css"/>
+    <link rel="stylesheet" href="/css/yui.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <style type="text/css">
+        .yui-commont {
+            color: #047103;
+        }
+
+        .yui-string {
+            color: #0f990c;
+        }
+
+        .yui-keyword {
+            color: #36d;
+        }
+
+        .yui-variable {
+            color: #000;
+        }
+
+        .yui-class {
+            color: #8c0776;
+        }
+
+        .yui-function {
+            color: #e09a00;
+            padding-left: 4px;
+        }
+
+        .yui-def {
+            color: #00f;
+        }
+
+        .yui-property {
+            color: #e09a00;
+        }
+
+        .yui-block {
+            padding-left: 16px;
+        }
+
+    </style>
+</head>
+<body ng-app="myApp">
+
+<label> Their URL field:</label>
+<input type="text" ng-model="theirUrl" />
+<div my-directive my-url="=theirUrl" some-attr="theirUrl" my-link-text="Click me to go to Google">
+
+</div>
+
+<script type="text/javascript">
+    angular.module('myApp',[]).directive('myDirective',function () {
+        return {
+            restrict:'A',
+            replace:true,
+            scope:{
+                myUrl:'=', // 双向绑定是取决于隔离作用于声明的时候。 DOM属性值对于隔离作用域上来说只是一个字符串值
+                //myUrl:'=someAttr',
+                myLinkText:'@'
+            },
+            template:'\
+                <div>\
+                <label>My Url field:</label>\
+                <input type="text"\
+                ng-model="myUrl" />\
+                <a href="{{myUrl}}">{{myLinkText}}</a>\
+                </div>'
+        }
+    });
+</script>
+
+<!--<div><span class="yui-keyword">function</span><span class="yui-function">a</span>(a) {</div>-->
+<!--<div class="yui-block"><span class="yui-commont">//str type</span>-->
+    <!--<div><span class="yui-keyword">var</span> tmp = <span class="yui-string">'aaaa'</span>;</div>-->
+    <!--<div> console.log(tmp);</div>-->
+    <!--<div><span class="yui-keyword">if</span> (a == null) {</div>-->
+    <!--<div class="yui-block">-->
+        <!--<div> a = <span class="yui-string">'a'</span>;</div>-->
+    <!--</div>-->
+    <!--<div>} <span class="yui-keyword">else</span> {</div>-->
+    <!--<div class="yui-block">-->
+        <!--<div> a = <span class="yui-string">'b'</span>;</div>-->
+    <!--</div>-->
+    <!--<div>}</div>-->
+<!--</div>-->
+<!--<div>}</div>-->
+
+
+</body>
+</html>
