@@ -2,20 +2,7 @@
  * Created by zeng on 17/1/30.
  */
 angular.module('yBtnModule',[]).directive('yBtn', function () {
-    var enumData = {
-        /* 按钮类型 */
-        type:{sub:"class",value:{primary:"ant-btn ant-btn-primary",default:"ant-btn",dashed:"ant-btn ant-btn-dashed",danger:"ant-btn ant-btn-danger"}},
-        /* 圆形按钮 */
-        sharp:{sub:"class",value:{default:"",sharp:"ant-btn-circle"}},
-        /* 按钮大小 */
-        size:{sub:"class",value:{larger:"ant-btn-lg",default:"",small:"ant-btn-sm"}},
-        /* 等待模式 */
-        loading:{sub:"class",value:{loading:"anticon anticon-spin anticon-loading"}},
-        /* 禁用按钮 */
-        disabled:{sub:"attr",value:{default:"",disable:"disabled"}},
-        /* 幽灵按钮（将颜色反转） */
-        ghost:{sub:"class",value:{default:"",ghost:"ant-btn-background-ghost"}}
-    };
+
     return {
         templateUrl:'y-button-Temp.html',
         replace: true,
@@ -34,22 +21,46 @@ angular.module('yBtnModule',[]).directive('yBtn', function () {
         },
         transclude: true,
         controller: function ($scope,$element,$attrs,$transclude) {
-            if($scope["tType"] != null && $scope["tType"] != undefined){
-                $scope.vType=enumData["type"]["value"][$scope["tType"]];
+            $scope.enumData = {
+                /* 按钮类型 */
+                Type:{sub:"class",value:{primary:"ant-btn ant-btn-primary",default:"ant-btn",dashed:"ant-btn ant-btn-dashed",danger:"ant-btn ant-btn-danger"}},
+                /* 圆形按钮 */
+                Sharp:{sub:"class",value:{default:"",sharp:"ant-btn-circle"}},
+                /* 按钮大小 */
+                Size:{sub:"class",value:{larger:"ant-btn-lg",default:"",small:"ant-btn-sm"}},
+                /* 等待模式 */
+                Loading:{sub:"class",value:{loading:"anticon-loading"}},
+                /* 禁用按钮 */
+                Disabled:{sub:"attr",value:{default:"",disable:"disabled"}},
+                /* 幽灵按钮（将颜色反转） */
+                Ghost:{sub:"class",value:{default:"",ghost:"ant-btn-background-ghost"}}
+            };
+            $scope.confData={vType:"ant-btn",vSharp:"",vSize:"",vLoading:"",vDisabled:"",vGhost:"",vIcon:""};
+            $scope.frushData = function(){
+                for(var tmp in $scope.enumData){
+                    if($scope["t"+tmp] == null || $scope["t"+tmp] == undefined || $scope["t"+tmp]==""){
+                        continue;
+                    }
+                    $scope.confData["v"+tmp] = $scope.enumData[tmp].value[$scope["t"+tmp]];
+                }
             }
+            if($scope.tIcon != null && $scope.tIcon != undefined && $scope.tIcon !="") {
+                $scope.confData.vIcon = $scope.tIcon;
+            }
+
+            // if($scope["tType"] != null && $scope["tType"] != undefined){
+            //     $scope.vType=enumData["type"]["value"][$scope["tType"]];
+            // }
 
             // $scope.vSharp=enumData["sharp"]["value"][$scope["tSharp"]];
             // $scope.vSize=enumData["size"]["value"][$scope["tSize"]];
             // $scope.vLoading=enumData["loading"]["value"][$scope["tLoading"]];
             // $scope.vDisabled=enumData["disabled"]["value"][$scope["tDisabled"]];
             // $scope.tGhost=enumData["ghost"]["value"][$scope["tGhost"]];
+            $scope.frushData();
             $transclude($scope,function(clone,$scope){
                 //$scope.eda = js_highlight(clone.html());
             });
-            console.log();
-            //var tmpclassUnClick = 'ant-btn ant-btn-primary';
-            //var tmpclassClick = 'ant-btn ant-btn-primary ant-btn-clicked';
-            //var tmpclass = tmpclassUnClick;
         },
         link: function (scope, element, attrs) {
 

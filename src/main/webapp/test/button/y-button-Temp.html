@@ -1,8 +1,10 @@
 <div>
-<button  type="button" class="{{vType}}" ng-click="clickskin(this)">
-    <i class="anticon anticon-search"></i>
-    <span>{{btnText}}</span>
+<button {{confData.vDisabled}} type="button" class="{{confData.vType}} {{confData.vSharp}} {{confData.vSize}} {{confData.vLoading}} {{confData.vGhost}}" ng-click="clickskin(this)">
+    <i ng-if="tIcon != '' && tLoading != 'loading'" class="anticon  anticon-{{confData.vIcon}} {{confData.vLoading}}"></i>
+    <i ng-if="tIcon != '' && tLoading == 'loading'" class="anticon anticon-spin {{confData.vLoading}}"></i>
+    <span ng-if="tSharp != 'sharp'">{{btnText}}</span>
 </button>
+    {{confData}}
     <!--<div ng-transclude ></div>-->
     <div>{{eda}}</div>
 </div>
