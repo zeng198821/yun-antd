@@ -5,8 +5,7 @@
     <title>Button Test</title>
     <!-- -->
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="/css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/yui.css" type="text/css"/>
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
     <script type="text/javascript" src="/js/angularJs/angular.js"></script>
     <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="/js/syntaxhighlighter_3.0.83/yJSBeautify.js"></script>
@@ -16,25 +15,20 @@
 <body>
 <h1>Button Test</h1>
 <div ng-app="btntest" ng-controller="btnCtrl">
-    <y-btn btntext="aaa" ed="ngTransclude" onclick="ttt.t()">function a(a){ //str type
-        var tmp='aaaa';console.log(tmp);if(a==null){a='a';}else{a='b';}}</y-btn>
+    <y-btn btn-text="aaa" log-text = "zeng1" t-click="t(aa)" t-type="primary" t-icon="" t-sharp="" t-size="" t-loading="" t-ghost="" >aaaa</y-btn>
+    <y-btn btn-text="aaa" log-text = "zeng2" t-click="t(aa)" t-type="default" >aaaa</y-btn>
 </div>
-
 
 <script type="text/javascript">
 
     var app = angular.module("btntest", ['yBtnModule']);
 
     app.controller("btnCtrl", function ($scope) {
-
+        $scope.t = function (aa){
+            console.log(aa);
+        };
     });
 
-    var ttt = {
-        t:function () {
-            console.log("aaaa");
-        }
-
-    }
 
 </script>
 
