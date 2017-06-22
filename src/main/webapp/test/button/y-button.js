@@ -10,17 +10,26 @@ angular.module('yBtnModule',[]).directive('yBtn', function () {
             btnText: '@',
             tClick:'&',
             eda:"=ed",
+            tId:"@",
             logText: '@',
             tType:'@',
+            tId:'@',
             tSize:'@',
             tIcon:'@',
             tSharp:'@',
-            tLoading:'@',
+            tLoading:'=',
             tGhost:'@',
+            startLoading:"=",
+            endLoading:"=",
 
         },
         transclude: true,
         controller: function ($scope,$element,$attrs,$transclude) {
+            $scope.$watch('tLoading',function(newVal,oldVal,scope){
+                if(newVal != oldVal){
+                    $scope.frushData();
+                }
+            });
             $scope.enumData = {
                 /* 按钮类型 */
                 Type:{sub:"class",value:{primary:"ant-btn ant-btn-primary",default:"ant-btn",dashed:"ant-btn ant-btn-dashed",danger:"ant-btn ant-btn-danger"}},
@@ -29,7 +38,7 @@ angular.module('yBtnModule',[]).directive('yBtn', function () {
                 /* 按钮大小 */
                 Size:{sub:"class",value:{larger:"ant-btn-lg",default:"",small:"ant-btn-sm"}},
                 /* 等待模式 */
-                Loading:{sub:"class",value:{loading:"anticon-loading"}},
+                Loading:{sub:"class",value:{loading:"ant-btn-loading"}},
                 /* 禁用按钮 */
                 Disabled:{sub:"attr",value:{default:"",disable:"disabled"}},
                 /* 幽灵按钮（将颜色反转） */
@@ -47,6 +56,20 @@ angular.module('yBtnModule',[]).directive('yBtn', function () {
             if($scope.tIcon != null && $scope.tIcon != undefined && $scope.tIcon !="") {
                 $scope.confData.vIcon = $scope.tIcon;
             }
+            $scope.startLoading = function(){
+                if($scope.tLoading != "loading"){
+                    $scope.tLoading = "loading";
+                    frushData();
+                }
+            }
+            $scope.endLoading = function(){
+                if($scope.tLoading == "loading"){
+                    $scope.tLoading = "";
+                    frushData();
+                }
+            }
+
+
 
             // if($scope["tType"] != null && $scope["tType"] != undefined){
             //     $scope.vType=enumData["type"]["value"][$scope["tType"]];
@@ -72,14 +95,19 @@ angular.module('yBtnModule',[]).directive('yBtn', function () {
             var isClicked = false;
             function clickskin() {
                 if(!isClicked){
+
                     if(scope.tClick != null && scope.tClick != undefined)
                         /* 调用回调函数时需要对实参进行封装，属性名就是回调函数的形参名 */
                         scope.tClick({aa:scope.logText});
                     tmpelementBtn.addClass('ant-btn-clicked');
                     setTimeout(unClicked, 1000);
                 }
+                //scope.$apply();
+                //scope.frushData();
+                scope.$apply();
                 isClicked = true;
             }
+
             //scope.unClicked =
             function unClicked() {
                 isClicked = false;
