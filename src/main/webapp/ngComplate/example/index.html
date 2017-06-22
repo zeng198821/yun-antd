@@ -6,10 +6,28 @@
         <link rel="stylesheet" href="css/structure.css"/>
         <link rel="stylesheet" href="css/angucomplete.css"/>
         <link rel="stylesheet" href="fonts/bariol/bariol.css"/>
+        <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
     </head>
 	<body ng-app="app">
+
+
+    <div id="zeng1" style="position: absolute; top: 0px; left: 0px; width: 100%;">
+        <div data-reactroot="">
+            <div id="ac" class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft" style="left: 330.156px; top: 501.563px; width: 200px;">
+                <div style="overflow: auto;">
+                    <ul class="ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root" role="menu" aria-activedescendant="">
+                        <li unselectable="unselectable" class="ant-select-dropdown-menu-item-active ant-select-dropdown-menu-item-selected ant-select-dropdown-menu-item" role="menuitem" aria-selected="true" style="user-select: none;">b</li>
+                        <li unselectable="unselectable" class="ant-select-dropdown-menu-item" role="menuitem" aria-selected="false" style="user-select: none;">bb</li>
+                        <li unselectable="unselectable" class="ant-select-dropdown-menu-item" role="menuitem" aria-selected="false" style="user-select: none;">bbb</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
 		<div ng-controller="MainController">
-            <h1>Angucomplete</h1>
+            <h1 id ="ngTitle">Angucomplete</h1>
+            <input id="ngText" class="ant-input ng-pristine ng-valid" ng-model="searchStr" type="text" placeholder="Search countries" onmouseup="this.select();" ng-focus="resetHideResults()" ng-blur="hideResults()">
             <h2>Awesome Autocompleteness for AngularJS</h2>
             <p>
                 A minimal looking, easy to implement directive for AngularJS that lets you quickly add autocomplete boxes (for local or remote JSON data) to your pages with no dependency on other libraries. Its deliberately minimal looking so you can easily customise it with just a few lines of CSS.
@@ -68,5 +86,32 @@
             <script src="js/app/controllers/main-controller.js"></script>
             <script src="js/app/directives/angucomplete.js"></script>
         </div>
+
+
+
+
+    <script type="text/javascript">
+        function show_coords (e){
+            $("#log").text("e.pageX: " + e.pageX + ", e.pageY: " + e.pageY);
+            $("#ac").css({"top":e.pageY,"left":e.pageX});
+        }
+        function show() {
+            var obj = $("#ngText");
+            var pos =obj.position();
+            var offste = obj.offset();
+            console.log("pos:");
+            console.log(pos);
+            console.log("offste:");
+            console.log(offste);
+            console.log(obj.outerHeight());
+            if(offste == null || offste == undefined){
+                return;
+            }
+            offste.top = offste.top+obj.outerHeight();
+            $("#ac").css({"top":offste.top,"left":offste.left});
+        }
+        show();
+
+    </script>
 	</body>
 </html>
