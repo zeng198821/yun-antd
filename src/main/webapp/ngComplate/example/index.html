@@ -13,7 +13,7 @@
 
     <div id="zeng1" style="position: absolute; top: 0px; left: 0px; width: 100%;">
         <div data-reactroot="">
-            <div id="ac" class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft" style="left: 330.156px; top: 501.563px; width: 200px;">
+            <div id="ac" class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft" style="width: 100%;">
                 <div style="overflow: auto;">
                     <ul class="ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root" role="menu" aria-activedescendant="">
                         <li unselectable="unselectable" class="ant-select-dropdown-menu-item-active ant-select-dropdown-menu-item-selected ant-select-dropdown-menu-item" role="menuitem" aria-selected="true" style="user-select: none;">b</li>
@@ -108,7 +108,7 @@
                 return;
             }
             offste.top = offste.top+obj.outerHeight();
-            $("#ac").css({"top":offste.top,"left":offste.left});
+            $("#ac").css({"top":offste.top,"left":offste.left,"width":obj.outerWidth()});
         }
         show();
 

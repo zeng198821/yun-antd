@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Button Test</title>
+    <!-- -->
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/syntaxhighlighter_3.0.83/yJSBeautify.js"></script>
+    <script type="text/javascript" src="y-button.js"></script>
+
+</head>
+<body>
+<h1>Button Test</h1>
+<div ng-app="btntest" ng-controller="btnCtrl" style="margin: 10px">
+    <y-btn id="btn1" btn-text="aaa" log-text = "zeng1" t-click="t(aa)" t-type="primary" t-icon="download" t-sharp="" t-size="larger" t-loading="tLoading" t-ghost="" >aaaa</y-btn>
+    <br>
+    <y-btn id="btn2" btn-text="aaa" log-text = "zeng2" t-click="t(aa)" t-type="default" >aaaa</y-btn>
+    <br>
+    <y-btn id="btn3" btn-text="aaa" log-text = "zeng1" t-click="t(aa)" t-type="primary" t-icon="download" t-sharp="sharp" t-size="larger" t-loading="tLoading" t-ghost="" >aaaa</y-btn>
+</div>
+
+<script type="text/javascript">
+
+    var app = angular.module("btntest", ['yBtnModule']);
+    app.controller("btnCtrl", function ($scope) {
+        var isloading=false;
+        $scope.tLoading ="abd";
+        console.log('controller ');
+        $scope.t = function (aa){
+            if($scope.tLoading != "loading"){
+                //$("#btn1").attr("t-loading","loading");
+                $scope.tLoading = "loading";
+            }else{
+                //$("#btn1").attr("t-loading","");
+                $scope.tLoading = "";
+            }
+        };
+    });
+
+</script>
+
+</body>
+</html>

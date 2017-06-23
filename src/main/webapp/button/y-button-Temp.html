@@ -1,0 +1,11 @@
+<div>
+<button id="tId" {{confData.vDisabled}} type="button" class="{{confData.vType}} {{confData.vSharp}} {{confData.vSize}} {{confData.vLoading}} {{confData.vGhost}}" ng-click="clickskin(this)">
+    <i ng-if="tIcon != '' " ng-show="tIcon != '' && tLoading != 'loading'" class="anticon  anticon-{{confData.vIcon}} "></i>
+    <i ng-show="tIcon != '' && tLoading == 'loading'" class="anticon anticon-spin anticon-loading"></i>
+    <span ng-show="tSharp != 'sharp'">{{btnText}}</span>
+</button>
+    tLoading:[{{tLoading}}]
+    {{confData}}
+    <!--<div ng-transclude ></div>-->
+    <div>{{eda}}</div>
+</div>
