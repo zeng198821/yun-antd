@@ -6,10 +6,11 @@ angular.module('yInputModule',[]).directive('yNum', function () {
     return {
         templateUrl:'template.html',
         replace: true,
+        require: '?ngModel',
         scope: {
             max:'@',
             min:'@',
-
+            tValue:"=pValue"
         },
         transclude: true,
         controller: function ($scope,$element,$attrs,$transclude) {
@@ -19,6 +20,7 @@ angular.module('yInputModule',[]).directive('yNum', function () {
             $scope.$watch('tValue',function (newVal,oldVal,$scope) {
                 if(isNaN(newVal) || $scope.vMax < newVal || $scope.vMin > newVal) {
                     $scope.tValue = oldVal;
+                    //$scope.pValue=$scope.tValue;
                 }
             });
             //$scope.$apply();

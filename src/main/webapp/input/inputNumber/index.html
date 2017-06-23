@@ -15,7 +15,10 @@
 
 
     <div ng-app="myApp" ng-controller="numCtrl">
-        <y-num min="1" max="5"></y-num>
+        <y-num min="1" max="5" ng-model="age" p-value="age"></y-num>
+        {{age}}
+        <br>
+        <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">cc</button>
     </div>
 </body>
 </html>

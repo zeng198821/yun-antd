@@ -3,5 +3,7 @@
  */
 var app = angular.module("myApp",['yInputModule']);
 app.controller("numCtrl", function ($scope) {
-
+    $scope.cc = function () {
+        $scope.age=3;
+    }
 });

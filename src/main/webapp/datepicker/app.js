@@ -5,6 +5,6 @@ app.controller('MainCtrl', function($scope) {
   $scope.currentDate = '';
   $scope.updateMyText = function(date) {
     $scope.myText = 'Selected';
-    $scope.currentDate = date;
+    //$scope.currentDate = date;
   };
 });
