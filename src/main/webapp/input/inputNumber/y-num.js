@@ -16,7 +16,9 @@ angular.module('yInputModule',[]).directive('yNum', function () {
         controller: function ($scope,$element,$attrs,$transclude) {
             $scope.vMax = parseInt($scope.max);
             $scope.vMin = parseInt($scope.min);
-            $scope.tValue = $scope.vMin;
+            if($scope.tValue == null || $scope.tValue == undefined){
+                $scope.tValue = $scope.vMin;
+            }
             $scope.$watch('tValue',function (newVal,oldVal,$scope) {
                 if(isNaN(newVal) || $scope.vMax < newVal || $scope.vMin > newVal) {
                     $scope.tValue = oldVal;

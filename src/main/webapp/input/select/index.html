@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Input Select</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="y-select.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+    <h3>选择框</h3>
+    <!--<div id="selInp" onclick="showSelectDetail(this)" class="ant-select ant-select-enabled" style="width: 120px;">-->
+        <!--<div class="ant-select-selection ant-select-selection&#45;&#45;single" >-->
+            <!--<div class="ant-select-selection__rendered">-->
+                <!--<div class="ant-select-selection-selected-value" style="display: block; opacity: 1;">Jack</div>-->
+            <!--</div>-->
+            <!--<span class="ant-select-arrow"  style="user-select: none;"><b></b></span>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div style="position: absolute; top: 0px; left: 0px; width: 100%;">-->
+        <!--<div id="selDet" class="ant-select-dropdown ant-select-dropdown&#45;&#45;single ant-select-dropdown-placement-topLeft">-->
+            <!--<div style="overflow: auto;">-->
+                <!--<ul class="ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root">-->
+                    <!--<li unselectable="unselectable" class="ant-select-dropdown-menu-item-selected ant-select-dropdown-menu-item" style="user-select: none;">Jack</li>-->
+                    <!--<li unselectable="unselectable" class="ant-select-dropdown-menu-item"  style="user-select: none;">Lucy</li>-->
+                    <!--<li unselectable="unselectable" class="ant-select-dropdown-menu-item-disabled ant-select-dropdown-menu-item" style="user-select: none;">Disabled</li>-->
+                    <!--<li unselectable="unselectable" class="ant-select-dropdown-menu-item" style="user-select: none;">yiminghe</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div style="position: absolute; top: 0px; left: 0px; width: 200px;">-->
+        <!--<div id="selDeta" style="top: 200px; left: 200px; width: 100%;" class="ant-select-dropdown ant-select-dropdown&#45;&#45;single ant-select-dropdown-placement-topLeft">-->
+            <!--<div style="overflow: auto;">-->
+                <!--<ul class="ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root">-->
+                    <!--<li unselectable="unselectable" ng-click="select(tmp.id)" ng-repeat="tmp in list" class="{{tmp.selected ?'ant-select-dropdown-menu-item-selected':''}} {{tmp.disabled ? 'ant-select-dropdown-menu-item-disabled':''}} ant-select-dropdown-menu-item" style="user-select: none;"> {{tmp.name}}</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <div ng-app="myApp" ng-controller="selectCtrl" style="margin: 50px;">
+        <y-select p-value="selectedId" p-list="list"></y-select>
+        <br>
+        <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">cc</button>
+    </div>
+</body>
+</html>
