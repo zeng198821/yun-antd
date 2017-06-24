@@ -23,8 +23,8 @@ angular.module('yInputModule',[]).directive('ySelect', function () {
             /**
              * 选项列表对象
              */
-            var tmpDetailObj = element.find('.ant-select-dropdown');
-            var tmpSelectObj = $(element);
+            var tmpDetailObj = $(element).find('.ant-select-dropdown');
+            var tmpSelectObj = $(element).find('.ant-select');
             /**
              * 拷贝下拉框控件位置和大小
              * @param offset_para 下拉框控件位置
