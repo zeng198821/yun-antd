@@ -25,6 +25,12 @@ angular.module('yInputModule',[]).directive('ySelect', function () {
              */
             var tmpDetailObj = $(element).find('.ant-select-dropdown');
             var tmpSelectObj = $(element).find('.ant-select');
+
+
+
+
+
+
             /**
              * 拷贝下拉框控件位置和大小
              * @param offset_para 下拉框控件位置
@@ -81,6 +87,21 @@ angular.module('yInputModule',[]).directive('ySelect', function () {
                 scope.showDetail = false;
                 //scope.$apply();
             }
+
+
+
+            /**
+             * 单击空白处直接隐藏下拉框
+             */
+            $('body').click(function(){
+                scope.showDetail = false;
+                scope.$apply();
+            });
+            tmpSelectObj.on('click',function(e){
+                //阻止底层冒泡
+                e.stopPropagation();
+                scope.showSelectDetail(e);
+            });
 
         }
     };
