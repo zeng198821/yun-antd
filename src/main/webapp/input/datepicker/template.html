@@ -1,0 +1,76 @@
+<div>
+    <div class="ant-calendar-picker" ng-click="showDatePickerDetail(this)">
+        <input readonly="" value="" placeholder="请选择日期" class="ant-calendar-picker-input ant-input">
+        <span class="ant-calendar-picker-icon"></span>
+    </div>
+
+    <div ng-if="showDetail" style="position: absolute; top: 0px; left: 0px; width: 100%;">
+        <div class="ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft" style="top: {{vOffset.top + vOffset.height}}px; left: {{vOffset.left}}px;">
+            <div class="ant-calendar" tabindex="0">
+                <div class="ant-calendar-panel">
+                    <div class="ant-calendar-input-wrap">
+                        <div class="ant-calendar-date-input-wrap">
+                            <input class="ant-calendar-input " value="" placeholder="Select date">
+                        </div>
+                        <a class="ant-calendar-clear-btn" role="button" title="Clear"></a>
+                    </div>
+                    <div class="ant-calendar-date-panel">
+                        <div class="ant-calendar-header">
+                            <div style="position: relative;">
+                                <a class="ant-calendar-prev-year-btn" role="button" title="Last year (Control + left)"></a>
+                                <a class="ant-calendar-prev-month-btn" role="button" title="Previous month (PageUp)"></a>
+                                <span class="ant-calendar-my-select">
+                                    <a class="ant-calendar-month-select" role="button" title="Choose a month">June</a>
+                                    <a class="ant-calendar-year-select" role="button" title="Choose a year">2017</a>
+                                </span>
+                                <a class="ant-calendar-next-month-btn" title="Next month (PageDown)"></a>
+                                <a class="ant-calendar-next-year-btn" title="Next year (Control + right)"></a>
+                            </div>
+                        </div>
+                        <div class="ant-calendar-body">
+                            <table class="ant-calendar-table" cellspacing="0" role="grid">
+                                <thead>
+                                <tr role="row">
+                                    <th role="columnheader" title="周日" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">日</span>
+                                    </th>
+                                    <th role="columnheader" title="周一" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">一</span>
+                                    </th>
+                                    <th role="columnheader" title="周二" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">二</span>
+                                    </th>
+                                    <th role="columnheader" title="周三" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">三</span>
+                                    </th>
+                                    <th role="columnheader" title="周四" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">四</span>
+                                    </th>
+                                    <th role="columnheader" title="周五" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">五</span>
+                                    </th>
+                                    <th role="columnheader" title="周六" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">六</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="ant-calendar-tbody">
+                                <tr role="row" class="" ng-repeat="tmpRow in vCalArr">
+                                    <td  ng-repeat="tmp in tmpRow" title="{{tmp.date.Format('yyyy-MM-dd')}}" class="ant-calendar-cell {{ tmp.isThisMonth ? '': 'ant-calendar-last-month-cell'}}">
+                                        <div class="ant-calendar-date" aria-selected="false" aria-disabled="false">{{tmp.date.getDate()}}</div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ant-calendar-footer">
+                            <span class="ant-calendar-footer-btn">
+                                <a class="ant-calendar-today-btn " title="{{vCurrDate.Format('yyyy-MM-dd')}}">Today</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
