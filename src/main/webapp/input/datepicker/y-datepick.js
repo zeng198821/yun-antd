@@ -18,13 +18,17 @@ angular.module('yInputModule',[]).directive('yDatepick', function () {
             }else {
                 $scope.vCurrDate = new Date();
             }
-
+            $scope.today = new Date();
             $scope.tValue="";
             $scope.vCalArr = $scope.vCurrDate.getCalDays();
             $scope.$watch('vCurrDate',function (newVal,oldVal,$scope) {
-                $scope.tValue = $scope.vCurrDate.Format('yyyy-mm-dd');
+                if($scope.tValue != newVal.Format('yyyy-MM-dd')){
+                    $scope.tValue = newVal.Format('yyyy-MM-dd');
+                }
+                 $scope.vCalArr = newVal.getCalDays();
+                // $scope.$apply();
             });
-            //$scope.$apply();
+
         },
         link: function (scope, element, attrs) {
 
@@ -34,6 +38,8 @@ angular.module('yInputModule',[]).directive('yDatepick', function () {
              */
             var tmpDetailObj = $(element).find('.ant-calendar-picker-container');
             var tmpSelectObj = $(element).find('.ant-calendar-picker');
+
+
 
             /**
              * 拷贝下拉框控件位置和大小
@@ -66,32 +72,88 @@ angular.module('yInputModule',[]).directive('yDatepick', function () {
                     var tmpObj = $(tmpSelectObj);
                     copyOffset(tmpObj.offset(),tmpObj.outerHeight(),tmpObj.outerWidth());
                     scope.showDetail = true;
+                    //scope.regEvent();
                 }
                 //scope.$apply();
-            }
+            };
+
+            scope.previousMonths = function(){
+                scope.vCurrDate = scope.vCurrDate.addMonths(-1);
+                //scope.vCalArr = scope.vCurrDate.getCalDays();
+                //scope.$apply(scope.vCalArr);
+            };
+            scope.nextMonths = function(){
+                scope.vCurrDate = scope.vCurrDate.addMonths(1);
+                //scope.vCalArr = scope.vCurrDate.getCalDays();
+                //scope.$apply(scope.vCalArr);
+            };
+
+            scope.previousYears = function(){
+                scope.vCurrDate = scope.vCurrDate.addYears(-1);
+                //scope.vCalArr = scope.vCurrDate.getCalDays();
+                //scope.$apply(scope.vCalArr);
+            };
+            scope.nextYears = function(){
+                scope.vCurrDate = scope.vCurrDate.addYears(1);
+                //scope.vCalArr = scope.vCurrDate.getCalDays();
+                //scope.$apply(scope.vCalArr);
+            };
+
 
             /**
              * 展现或隐藏下拉框明细项
              * @param id 被选中的ID值
              */
-            scope.select = function (id) {
-                for(var i=0;i<scope.tList.length;i++){
-                    var tmp = scope.tList[i];
-                    if(id === tmp.id){
-                        tmp.selected=true;
-                        scope.tValue = id;
-                        scope.vDefaultVal.selected = tmp.selected;
-                        scope.vDefaultVal.id = tmp.id;
-                        scope.vDefaultVal.name = tmp.name;
-                        scope.vDefaultVal.disabled = tmp.disabled;
-                    }else{
-                        tmp.selected=false;
-                    }
-                }
+            scope.select = function (selected_date) {
                 scope.showDetail = false;
+                scope.vCurrDate = selected_date;
+                console.log(selected_date);
                 //scope.$apply();
-            }
+            };
+            scope.regEvent = function(){
 
+                var tmpPreviousYears = $(element).find('.ant-calendar-prev-year-btn');
+
+                var tmpPreviousMonths = $(element).find('.ant-calendar-prev-month-btn');
+
+                var tmpNextMonths = $(element).find('.ant-calendar-next-month-btn');
+
+                var tmpNextYears = $(element).find('.ant-calendar-next-year-btn');
+
+                var tmpHeadSelect = $('div [head="select"]');
+
+                // tmpPreviousMonths.on('click',function(e){
+                //     //阻止底层冒泡
+                //     e.stopPropagation();
+                //     scope.previousMonths();
+                // });
+                //
+                // tmpPreviousYears.on('click',function(e){
+                //     //阻止底层冒泡
+                //     e.stopPropagation();
+                //     scope.previousYears();
+                // });
+                //
+                // tmpNextMonths.on('click',function(e){
+                //     //阻止底层冒泡
+                //     e.stopPropagation();
+                //     scope.nextMonths();
+                // });
+                //
+                // tmpNextYears.on('click',function(e){
+                //     //阻止底层冒泡
+                //     e.stopPropagation();
+                //     scope.nextYears();
+                // });
+
+                tmpHeadSelect.on('click',function(e){
+                    //阻止底层冒泡
+                    e.stopPropagation();
+                    //scope.nextYears();
+                });
+            };
+
+            scope.regEvent();
             /**
              * 单击空白处直接隐藏下拉框
              */
@@ -103,7 +165,9 @@ angular.module('yInputModule',[]).directive('yDatepick', function () {
                 //阻止底层冒泡
                 e.stopPropagation();
                 scope.showDatePickerDetail(e);
+                scope.$apply();
             });
+
 
 
         }

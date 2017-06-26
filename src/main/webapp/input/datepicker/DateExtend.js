@@ -32,6 +32,27 @@ Date.prototype.addDays = function(days)
     return date;
 }
 
+// 说明：添加月数
+// 参数：天数 比如1个月
+// 结果：比如日期：2016-11-13，加1个月，结果为：2016-12-13
+Date.prototype.addMonths = function(months)
+{
+    var date = new Date(this);
+    date.setMonth(date.getMonth() + months);
+    return date;
+}
+
+// 说明：添加年数
+// 参数：天数 比如1年
+// 结果：比如日期：2016-11-13，加1年，结果为：2017-11-13
+Date.prototype.addYears = function(years)
+{
+    var date = new Date(this);
+    date.setFullYear(date.getFullYear() + years);
+    return date;
+}
+
+
 /**
  * 获取当前月的第一天
  */
