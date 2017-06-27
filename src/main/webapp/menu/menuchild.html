@@ -1,0 +1,11 @@
+<li  ng-repeat="tmpchild in tmp.child" class="{{tmp.disabled ? 'ant-menu-item-disabled' : ''}} {{!tmp.disabled &&  tmpchild.show ? 'ant-menu-submenu-open':''}} {{tmpchild.child && tmpchild.child.length && tmpchild.child.length > 0 ? 'ant-menu-submenu-inline ant-menu-submenu' : 'ant-menu-item'}}" style="padding-left: 48px;">
+    <div ng-click="show(tmpchild)" class="ant-menu-submenu-title" style="padding-left: 24px;">
+        <span>
+            <i ng-if="tmpchild.icon" class="anticon anticon-{{tmpchild.icon}}"></i>
+            <span>{{tmpchild.title}}</span>
+        </span>
+    </div>
+
+    <ul ng-if="tmpchild && tmpchild.child && tmpchild.child.length > 0" ng-include="'menuchild.html'" ng-init=" tmp = tmpchild" class="ant-menu ant-menu-inline ant-menu-sub {{ tmp.show ? '':'ant-menu-hidden'}} {{}}" >
+    </ul>
+</li>

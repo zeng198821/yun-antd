@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="y-menu.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+    <h3>导航菜单</h3>
+
+    <!--<div style="margin: 20px;">-->
+        <!--<ul class="ant-menu ant-menu-horizontal  ant-menu-light ant-menu-root" tabindex="0">-->
+        <!--<li class="ant-menu-item-selected ant-menu-item">-->
+            <!--<i class="anticon anticon-mail"></i>-->
+            <!--Navigation One-->
+        <!--</li>-->
+        <!--<li class="ant-menu-item-disabled ant-menu-item">-->
+            <!--<i class="anticon anticon-appstore"></i>-->
+            <!--Navigation Two-->
+        <!--</li>-->
+        <!--<li class="ant-menu-submenu-horizontal ant-menu-submenu-open ant-menu-submenu-active ant-menu-submenu">-->
+            <!--<div class="ant-menu-submenu-title">-->
+                <!--<span>-->
+                    <!--<i class="anticon anticon-setting"></i>-->
+                    <!--Navigation Three - Submenu-->
+                <!--</span>-->
+            <!--</div>-->
+            <!--<ul class="ant-menu ant-menu-vertical  ant-menu-sub " id="item_2$Menu">-->
+                <!--<li class=" ant-menu-item-group">-->
+                    <!--<div class="ant-menu-item-group-title">Item 1</div>-->
+                    <!--<ul class="ant-menu-item-group-list">-->
+                        <!--<li class="ant-menu-item">Option 1</li>-->
+                        <!--<li class="ant-menu-item">Option 2</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class=" ant-menu-item-group">-->
+                    <!--<div class="ant-menu-item-group-title">Item 2</div>-->
+                    <!--<ul class="ant-menu-item-group-list">-->
+                        <!--<li class="ant-menu-item">Option 3</li>-->
+                        <!--<li class="ant-menu-item">Option 4</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li class="ant-menu-item"  >-->
+            <!--<a href="https://ant.design" target="_blank"rel="noopener noreferrer">-->
+                <!--Navigation Four -Link-->
+            <!--</a>-->
+        <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+
+    <!--<div style="margin: 20px;">-->
+        <!--<ul class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root" tabindex="0" style="width: 240px;">-->
+            <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu">-->
+                <!--<div class="ant-menu-submenu-title" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i class="anticon anticon-mail"></i>-->
+                        <!--<span>Navigation One</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul class="ant-menu ant-menu-inline ant-menu-sub"   id="sub1$Menu">-->
+                    <!--<li class=" ant-menu-item-group">-->
+                        <!--<div class="ant-menu-item-group-title">Item 1</div>-->
+                        <!--<ul class="ant-menu-item-group-list">-->
+                            <!--<li class="ant-menu-item-selected ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 1-->
+                            <!--</li>-->
+                            <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 2-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class=" ant-menu-item-group">-->
+                        <!--<div class="ant-menu-item-group-title">Item 2</div>-->
+                        <!--<ul class="ant-menu-item-group-list">-->
+                            <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 3-->
+                            <!--</li>-->
+                            <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 4-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">-->
+                <!--<div class="ant-menu-submenu-title" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i class="anticon anticon-appstore"></i>-->
+                        <!--<span>Navigation Two</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul class="ant-menu ant-menu-inline ant-menu-sub" id="sub2$Menu">-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option5-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option6-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">-->
+                        <!--<div class="ant-menu-submenu-title" style="padding-left: 48px;">-->
+                            <!--Submenu-->
+                        <!--</div>-->
+                        <!--<ul class="ant-menu ant-menu-inline ant-menu-sub" id="sub3$Menu">-->
+                            <!--<li class="ant-menu-item" style="padding-left: 72px;">-->
+                                <!--Option 7-->
+                            <!--</li>-->
+                            <!--<li class="ant-menu-item" style="padding-left: 72px;">-->
+                                <!--Option 8-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">-->
+                <!--<div class="ant-menu-submenu-title" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i class="anticon anticon-setting"></i>-->
+                        <!--<span>Navigation Three</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul class="ant-menu ant-menu-inline ant-menu-sub" id="sub4$Menu">-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option9-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option10-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option11-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option12-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+
+
+
+
+    <!--<div style="margin: 20px;">-->
+        <!--<ul class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root" tabindex="0" style="width: 240px;">-->
+            <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected ant-menu-submenu">-->
+                <!--<div class="ant-menu-submenu-title" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i class="anticon anticon-mail"></i>-->
+                        <!--<span>Navigation One</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul class="ant-menu ant-menu-inline ant-menu-sub" >-->
+                    <!--<li class=" ant-menu-item-group">-->
+                        <!--<div class="ant-menu-item-group-title">Item 1</div>-->
+                        <!--<ul class="ant-menu-item-group-list">-->
+                            <!--<li class="ant-menu-item-selected ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 1-->
+                            <!--</li>-->
+                            <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 2-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <!--<li class=" ant-menu-item-group">-->
+                        <!--<div class="ant-menu-item-group-title">Item 2</div>-->
+                        <!--<ul class="ant-menu-item-group-list">-->
+                            <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 3-->
+                            <!--</li>-->
+                            <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                                <!--Option 4-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">-->
+                <!--<div class="ant-menu-submenu-title" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i class="anticon anticon-appstore"></i>-->
+                        <!--<span>Navigation Two</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul class="ant-menu ant-menu-inline ant-menu-sub" id="sub2$Menu">-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option5-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option6-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu">-->
+                        <!--<div class="ant-menu-submenu-title" style="padding-left: 48px;">-->
+                            <!--Submenu-->
+                        <!--</div>-->
+                        <!--<ul class="ant-menu ant-menu-inline ant-menu-sub" id="sub3$Menu">-->
+                            <!--<li class="ant-menu-item" style="padding-left: 72px;">-->
+                                <!--Option 7-->
+                            <!--</li>-->
+                            <!--<li class="ant-menu-item" style="padding-left: 72px;">-->
+                                <!--Option 8-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li ng-click="show()" class="ant-menu-submenu-inline {{ showdel ? 'ant-menu-submenu-open':''}} ant-menu-submenu">-->
+                <!--<div class="ant-menu-submenu-title" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i class="anticon anticon-setting"></i>-->
+                        <!--<span>Navigation Three</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul class="ant-menu ant-menu-inline ant-menu-sub {{ showdel ? '':'ant-menu-hidden'}}">-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option9-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option10-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option11-->
+                    <!--</li>-->
+                    <!--<li class="ant-menu-item" style="padding-left: 48px;">-->
+                        <!--Option12-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+    <!---->
+
+
+
+
+
+    <div ng-app="myApp" ng-controller="menuCtrl">
+        <!--<ul  class="ant-menu ant-menu-inline  ant-menu-light ant-menu-root" tabindex="0" style="width: 240px;">-->
+            <!--<li  ng-repeat=" tmp in list" class="ant-menu-submenu-inline {{ tmp.show ? 'ant-menu-submenu-open':''}} {{tmp.child && tmp.child.length && tmp.child.length > 0 ? 'ant-menu-submenu' : ''}}">-->
+                <!--<div ng-click="show(tmp)" class="{{tmp.child && tmp.child.length && tmp.child.length > 0 ? 'ant-menu-submenu-title' : ''}}" style="padding-left: 24px;">-->
+                    <!--<span>-->
+                        <!--<i ng-if="tmp.icon" class="anticon anticon-{{tmp.icon}}"></i>-->
+                        <!--<span>{{tmp.title}}</span>-->
+                    <!--</span>-->
+                <!--</div>-->
+                <!--<ul ng-if="tmp && tmp.child && tmp.child.length > 0" ng-include="'menuchild.html'" class="ant-menu ant-menu-inline ant-menu-sub {{ tmp.show ? '':'ant-menu-hidden'}} {{}}" >-->
+                <!--</ul>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <div style="margin: 20px;">
+            <y-mune p-value="list"></y-mune>
+        </div>
+
+        <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">cc</button>
+    </div>
+</body>
+</html>
