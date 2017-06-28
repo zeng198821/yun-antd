@@ -1,7 +1,7 @@
 /**
  * Created by zeng on 17-6-23.
  */
-var app = angular.module("myApp",['yInputModule']);
+var app = angular.module("myApp",['yTableModule','yInputNumModule']);
 app.controller("tableCtrl", ['$scope','$compile',function ($scope,$compile) {
 
     $scope.abc=[
@@ -11,7 +11,7 @@ app.controller("tableCtrl", ['$scope','$compile',function ($scope,$compile) {
     ];
 
     $scope.headList=[{"name":"姓名","col":"name"},{"name":"年龄","col":"age"},{"name":"地址","col":"address"}];
-
+    $scope.numTest=2;
 
     $scope.cc = function () {
         // console.log($scope);
@@ -25,7 +25,7 @@ app.controller("tableCtrl", ['$scope','$compile',function ($scope,$compile) {
     $scope.dd = function () {
         console.log($scope);
         console.log($compile);
-        var tmpLinkFunction = $compile('<y-table head-list="headList" row-list="abc"></y-table>');
+        var tmpLinkFunction = $compile('');
         var htmlstr = tmpLinkFunction($scope);
         $("#tt").html(htmlstr);
     }

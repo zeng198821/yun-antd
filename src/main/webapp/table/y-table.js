@@ -2,7 +2,7 @@
  * Created by zeng on 17-6-23.
  */
 
-angular.module('yInputModule',[]).directive('yTable', function () {
+angular.module('yTableModule',[]).directive('yTable', function () {
     return {
         templateUrl:'template.html',
         replace: true,

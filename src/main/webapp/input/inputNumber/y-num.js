@@ -2,9 +2,9 @@
  * Created by zeng on 17-6-23.
  */
 
-angular.module('yInputModule',[]).directive('yNum', function () {
+angular.module('yInputNumModule',[]).directive('yNum', function () {
     return {
-        templateUrl:'template.html',
+        templateUrl:'/input/inputNumber/template.html',
         replace: true,
         require: '?ngModel',
         scope: {
