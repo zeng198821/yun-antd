@@ -14,11 +14,12 @@ app.controller("tableCtrl", ['$scope','$compile',function ($scope,$compile) {
 
 
     $scope.cc = function () {
-        console.log($scope);
-        console.log($compile);
-        $("#tt").html('<y-table head-list="headList" row-list="abc"></y-table>');
-        var tmpLinkFunction = $compile();
-        var htmlstr = tmpLinkFunction($scope);
+        // console.log($scope);
+        // console.log($compile);
+        // $("#tt").html('<y-table head-list="headList" row-list="abc"></y-table>');
+        // var tmpLinkFunction = $compile();
+        // var htmlstr = tmpLinkFunction($scope);
+        $scope.abc[0].age++;
 
     }
     $scope.dd = function () {
