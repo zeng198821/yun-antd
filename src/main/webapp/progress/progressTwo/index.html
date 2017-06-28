@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>progress</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="y-progress.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+<h3>进度圈</h3>
+
+
+<!--<div >-->
+<!--<y-num min="1" max="5" p-value="age"></y-num>-->
+<!--{{age}}-->
+<!--<br>-->
+<!--<button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">cc</button>-->
+<!--</div>-->
+
+
+<div style="width: 900px;height: auto;margin: 0 auto;" ng-app="myApp" ng-controller="numCtrl">
+    <p-two s-width="sWidth" s-dasharray="sDasharray" r-wh="rWh" r-percent="rPercent" r-color="rColor" t-type="1"></p-two>
+    <p-two s-width="sWidth" s-dasharray="sDasharray" r-wh="rWh" r-percent="rPercent" r-color="rColor" t-type="2"></p-two>
+    <p-two s-width="sWidth" s-dasharray="sDasharray" r-wh="rWh" r-percent="rPercent" r-color="rColor" t-type="3"></p-two>
+    <p-two s-width="sWidth" s-dasharray="sDasharray" r-wh="rWh" r-percent="rPercent" r-color="rColor" t-type="4"></p-two>
+    <!--s-width代表圆弧的宽度，s-dasharray代表加载圆弧的长度，r-wh代表圆盒子的宽高，r-percent代表加载的百分比， t-type代表显示的类型-->
+
+        <!--<div class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info">-->
+            <!--<div class="ant-progress-inner" style="width: 100px; height: 100px; font-size: 27.12px;">-->
+                <!--<svg class="ant-progress-circle" viewBox="-5 -5 110 110">-->
+                    <!--<path class="ant-progress-circle-trail" d="M 50,50 m 0,-47-->
+     <!--a 47,47 0 1 1 0,94-->
+     <!--a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="6" fill-opacity="0"-->
+                          <!--style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>-->
+                    <!--<path class="ant-progress-circle-path" d="M 50,50 m 0,-47-->
+     <!--a 47,47 0 1 1 0,94-->
+     <!--a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="#108ee9" stroke-width="6" fill-opacity="0"-->
+                          <!--style="stroke-dasharray: 221.482px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>-->
+                <!--</svg>-->
+                <!--<span class="ant-progress-text">75%</span>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info">-->
+            <!--<div class="ant-progress-inner" style="width: 132px; height: 132px; font-size: 27.12px;">-->
+                <!--<svg class="ant-progress-circle " viewBox="0 0 100 100">-->
+                    <!--<path class="ant-progress-circle-trail" d="M 50,50 m 0,-47-->
+     <!--a 47,47 0 1 1 0,94-->
+     <!--a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="6" fill-opacity="0"-->
+                          <!--style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>-->
+                    <!--<path class="ant-progress-circle-path" d="M 50,50 m 0,-47-->
+     <!--a 47,47 0 1 1 0,94-->
+     <!--a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="#ff5500" stroke-width="6" fill-opacity="0"-->
+                          <!--style="stroke-dasharray: 206.717px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>-->
+                <!--</svg>-->
+                <!--<span class="ant-progress-text"><i class="anticon anticon-cross"></i></span></div>-->
+        <!--</div>-->
+        <!--<div class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info">-->
+            <!--<div class="ant-progress-inner" style="width: 132px; height: 132px; font-size: 27.12px;">-->
+                <!--<svg class="ant-progress-circle " viewBox="0 0 100 100">-->
+                    <!--<path class="ant-progress-circle-trail" d="M 50,50 m 0,-47-->
+     <!--a 47,47 0 1 1 0,94-->
+     <!--a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="6" fill-opacity="0"-->
+                          <!--style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>-->
+                    <!--<path class="ant-progress-circle-path" d="M 50,50 m 0,-47-->
+     <!--a 47,47 0 1 1 0,94-->
+     <!--a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="#87d068" stroke-width="6" fill-opacity="0"-->
+                          <!--style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>-->
+                <!--</svg>-->
+                <!--<span class="ant-progress-text"><i class="anticon anticon-check"></i></span></div>-->
+        <!--</div>-->
+
+
+    <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">加</button>
+    <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="tt()">减</button>
+</div>
+
+
+</body>
+</html>

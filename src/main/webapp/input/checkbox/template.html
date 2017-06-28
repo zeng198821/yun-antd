@@ -1,0 +1,10 @@
+<div class="ant-checkbox-group">
+    <label ng-repeat="item in checkboxList" class="ant-checkbox-wrapper">
+        <span class="ant-checkbox {{ item.checked ? 'ant-checkbox-checked' : ''}} {{ item.disabled ? 'ant-checkbox-disabled' : ''}}">
+            <input type="checkbox" ng-click="checkOn(item)" class="ant-checkbox-input" value="on"/>
+            <span class="ant-checkbox-inner"></span>
+        </span>
+        <span>{{item.name}}</span>
+    </label>
+</div>
+

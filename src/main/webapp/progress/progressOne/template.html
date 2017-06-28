@@ -1,0 +1,9 @@
+<div class="ant-progress ant-progress-line {{ typeClass }}">
+    <div>
+        <div class="ant-progress-outer">
+            <div class="ant-progress-inner">
+                <div class="ant-progress-bg" style="width:{{percent}}%; height: {{vheight}}px;"></div>
+            </div>
+        </div><span ng-if="vType != 5" class="ant-progress-text"><span ng-if="vType == 1 || vType == 2">{{percent}}%</span><i ng-if="(vType == 3 || vType == 4) && percent < 100" class="anticon anticon-cross-circle"></i><i ng-if="(vType == 3 || vType == 4) && percent >= 100" class="anticon anticon-check-circle"></i></span>
+    </div>
+</div>

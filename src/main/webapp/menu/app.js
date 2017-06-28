@@ -15,7 +15,7 @@ app.controller("menuCtrl", function ($scope) {
         },
         {
             "id":2,
-            "disabled":true,
+            "disabled":false,
             "icon": "appstore",
             "title": "菜单2",
             "show": false,

@@ -1,0 +1,20 @@
+<div class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info">
+    <div class="ant-progress-inner" style="width: {{rWH}}px; height: {{rWH}}px; font-size: {{rWH / 20 * 5}}px;">
+        <svg class="ant-progress-circle " viewBox="-5 -5 110 110">
+            <path class="ant-progress-circle-trail" d="M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="{{sWidth}}" fill-opacity="0"
+                  style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>
+            <path class="" d="M 50,50 m 0,-47
+     a 47,47 0 1 1 0,94
+     a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="{{showColor}}" stroke-width="{{sWidth}}" fill-opacity="0"
+                  style="stroke-dasharray: {{sDasharray}}px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>
+        </svg>
+        <span class="ant-progress-text">
+            <span ng-if="vType == 1 || (vType == 3 && rPercent < 100)" style="color: {{showColor}};">{{rPercent}}%</span>
+            <i ng-if="vType == 2 && rPercent < 100" class="anticon anticon-cross" style="color: {{showColor}};"></i>
+            <i ng-if="(vType == 2 || vType == 3) && rPercent >= 100" class="anticon anticon-check" style="color: {{showColor}};"></i>
+            <span ng-if="vType == 4" style="color: {{showColor}};font-size: {{rWH / 20 * 5 / 1.5}}px;">{{showContent}}</span>
+        </span>
+    </div>
+</div>

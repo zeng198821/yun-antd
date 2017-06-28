@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CheckBox</title>
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="y-checkbox.js"></script>
+</head>
+<body style="padding: 30px;">
+    <h3 style="margin-bottom: 20px;">多选框</h3>
+    <div ng-app="myApp" ng-controller="checkboxCtrl">
+        <!--<div class="ant-checkbox-group">-->
+            <y-checkbox y-value="checkboxList"></y-checkbox>
+        <!--</div>-->
+        <div style="margin-top: 20px;">
+            <button class="ant-btn ant-btn-primary" ng-click="checkAll()">全选</button>
+            <button class="ant-btn ant-btn-primary" ng-click="checkNone()">全不选</button>
+            <button class="ant-btn ant-btn-primary" ng-click="checkReverse()">反选</button>
+            <button class="ant-btn ant-btn-primary" ng-click="disabledAll()">禁用</button>
+            <button class="ant-btn ant-btn-primary" ng-click="disableNone()">可用</button>
+            <button class="ant-btn ant-btn-primary" ng-click="submit()">提交</button>
+        </div>
+    </div>
+</body>
+</html>

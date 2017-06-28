@@ -1,0 +1,9 @@
+<div class="ant-progress ant-progress-line {{vType != 4 ? 'ant-progress-show-info' : ' '}} {{vType == 1 || vType == 4 ? 'ant-progress-status-normal' : ' '}} {{vType == 3 ? (percent == 100 ? 'ant-progress-status-success' : 'ant-progress-status-exception' ) : ' '}} {{vType == 2 ? 'ant-progress-status-active' : ' '}}">
+    <div>
+        <div class="ant-progress-outer">
+            <div class="ant-progress-inner">
+                <div class="ant-progress-bg" style="width:{{percent}}%; height: {{vheight}}px;"></div>
+            </div>
+        </div><span ng-if="vType != 4" class="ant-progress-text"><span ng-if="vType == 1 || vType == 2">{{percent}}%</span><i ng-if="(vType == 3) && percent < 100" class="anticon anticon-cross-circle"></i><i ng-if="(vType == 3) && percent >= 100" class="anticon anticon-check-circle"></i></span>
+    </div>
+</div>

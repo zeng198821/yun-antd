@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>progress</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="y-progress.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+<h3>标准的进度条</h3>
+
+
+<!--<div >-->
+    <!--<y-num min="1" max="5" p-value="age"></y-num>-->
+    <!--{{age}}-->
+    <!--<br>-->
+    <!--<button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">cc</button>-->
+<!--</div>-->
+
+
+<div style="width: 300px;height: 500px;margin: 0 auto;" ng-app="myApp" ng-controller="numCtrl">
+    <p>1</p>
+    <p-one t-type="1" t-percent="percentNum" t-height="tHeight"></p-one>
+    <!--t-type为显示的类型，t-percent为初始百分比，t-height为高度-->
+    <div style="height: 1em;width: 1em;"></div>
+    <p>2</p>
+    <p-one t-type="2" t-percent="percentNum"  t-height="tHeight"></p-one>
+    <div style="height: 1em;width: 1em;"></div>
+    <p>3</p>
+    <p-one t-type="3" t-percent="percentNum"  t-height="tHeight"></p-one>
+    <div style="height: 1em;width: 1em;"></div>
+    <p>4</p>
+    <p-one t-type="4" t-percent="percentNum"  t-height="tHeight"></p-one>
+    <div style="height: 1em;width: 1em;"></div>
+    <p>5</p>
+    <p-one t-type="5" t-percent="percentNum"  t-height="tHeight"></p-one>
+    <div style="height: 1em;width: 1em;"></div>
+    <!--<y-num></y-num>-->
+    <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="cc()">加</button>
+    <button style="margin: 20px" class="ant-btn ant-btn-primary" ng-click="tt()">减</button>
+</div>
+
+<!--<div class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info">-->
+    <!--<div>-->
+        <!--<div class="ant-progress-outer">-->
+            <!--<div class="ant-progress-inner">-->
+                <!--<div class="ant-progress-bg" style="width: 30%; height: 10px;"></div>-->
+            <!--</div>-->
+        <!--</div><span class="ant-progress-text">30%</span>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info">-->
+    <!--<div>-->
+        <!--<div class="ant-progress-outer">-->
+            <!--<div class="ant-progress-inner">-->
+                <!--<div class="ant-progress-bg" style="width: 50%; height: 10px;"></div>-->
+            <!--</div>-->
+        <!--</div><span class="ant-progress-text">50%</span></div>-->
+<!--</div>-->
+<!--<div class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info">-->
+    <!--<div>-->
+        <!--<div class="ant-progress-outer">-->
+            <!--<div class="ant-progress-inner">-->
+                <!--<div class="ant-progress-bg" style="width: 100%; height: 10px;"></div>-->
+            <!--</div>-->
+        <!--</div><span class="ant-progress-text"><i class="anticon anticon-cross-circle"></i></span></div>-->
+<!--</div>-->
+<!--<div class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info">-->
+    <!--<div>-->
+        <!--<div class="ant-progress-outer">-->
+            <!--<div class="ant-progress-inner">-->
+                <!--<div class="ant-progress-bg" style="width: 100%; height: 10px;"></div>-->
+            <!--</div>-->
+        <!--</div><span class="ant-progress-text"><i class="anticon anticon-check-circle"></i></span></div>-->
+<!--</div>-->
+<!--<div class="ant-progress ant-progress-line ant-progress-status-normal">-->
+    <!--<div>-->
+        <!--<div class="ant-progress-outer">-->
+            <!--<div class="ant-progress-inner">-->
+                <!--<div class="ant-progress-bg" style="width: 50%; height: 10px;"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+</body>
+</html>
