@@ -1,0 +1,75 @@
+<div>
+    <div class="ant-calendar-picker" >
+        <input readonly="" ng-model="iValue" placeholder="请选择日期" class="ant-calendar-picker-input ant-input">
+        <span class="ant-calendar-picker-icon"></span>
+    </div>
+    <div ng-show="showDetail" style="position: absolute; top: 0px; left: 0px; width: 100%;">
+        <div class="ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft" style=" {{'top:'+ (iOffset.top + iOffset.height) + 'px;'}} {{ 'left:' + (iOffset.left) + 'px;'}}">
+            <div class="ant-calendar" tabindex="0">
+                <div class="ant-calendar-panel">
+                    <div class="ant-calendar-input-wrap">
+                        <div class="ant-calendar-date-input-wrap">
+                            <input class="ant-calendar-input " value="" placeholder="Select date">
+                        </div>
+                        <a class="ant-calendar-clear-btn"  title="Clear"></a>
+                    </div>
+                    <div class="ant-calendar-date-panel">
+                        <div class="ant-calendar-header">
+                            <div head="select" style="position: relative;">
+                                <span style="cursor: pointer;" class="ant-calendar-prev-year-btn"  ng-click="previousYears()" title="上一年 (Control + left)"></span>
+                                <span style="cursor: pointer;" class="ant-calendar-prev-month-btn" ng-click="previousMonths()" title="上个月 (PageUp)"></span>
+                                <span class="ant-calendar-my-select">
+                                    <a class="ant-calendar-month-select"  title="选择一个月份">{{iCurrDate.Format("MM")}}</a>
+                                    <a class="ant-calendar-year-select"  title="选择一个年份">{{iCurrDate.Format("yyyy")}}</a>
+                                </span>
+                                <span style="cursor: pointer;" class="ant-calendar-next-month-btn" ng-click="nextMonths()" title="下个月 (PageDown)"></span>
+                                <span style="cursor: pointer;" class="ant-calendar-next-year-btn" ng-click="nextYears()" title="下一年 (Control + right)"></span>
+                            </div>
+                        </div>
+                        <div class="ant-calendar-body">
+                            <table class="ant-calendar-table" cellspacing="0" role="grid">
+                                <thead>
+                                <tr role="row">
+                                    <th role="columnheader" title="周日" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">日</span>
+                                    </th>
+                                    <th role="columnheader" title="周一" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">一</span>
+                                    </th>
+                                    <th role="columnheader" title="周二" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">二</span>
+                                    </th>
+                                    <th role="columnheader" title="周三" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">三</span>
+                                    </th>
+                                    <th role="columnheader" title="周四" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">四</span>
+                                    </th>
+                                    <th role="columnheader" title="周五" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">五</span>
+                                    </th>
+                                    <th role="columnheader" title="周六" class="ant-calendar-column-header">
+                                        <span class="ant-calendar-column-header-inner">六</span>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="ant-calendar-tbody">
+                                <tr role="row" class="" ng-repeat="tmpRow in iCalArr">
+                                    <td  ng-repeat="tmp in tmpRow" title="{{tmp.date.Format(iFormat)}}" class="ant-calendar-cell {{ tmp.isThisMonth &&  tmp.date.getDate() == iCurrDate.getDate() ? 'ant-calendar-selected-date ant-calendar-selected-day':''}} {{ tmp.date.getMonth() == today.getMonth() &&  tmp.date.getDate() == today.getDate() ?'ant-calendar-today':''}}{{ tmp.isThisMonth ? '': 'ant-calendar-last-month-cell'}} ">
+                                        <div class="ant-calendar-date" ng-click="select(tmp.date)" >{{tmp.date.getDate()}}</div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ant-calendar-footer">
+                            <span class="ant-calendar-footer-btn">
+                                <a class="ant-calendar-today-btn " title="{{iCurrDate.Format(iFormat)}}">Today</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

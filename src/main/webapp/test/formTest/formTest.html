@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/extend/DateExtend.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/yunfd-antd.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <y-checkbox  a-options="checkboxList" a-value="checkValue" a-comm="showBtnInfo" e-onchange="onCheckBoxChange(e)"></y-checkbox>
+        <y-input-number a-min="1" a-max="5" a-value="age" e-onchange="onNumValueChange(e)"></y-input-number>
+        {{age}}
+        <br>
+        <y-date-picker a-value="selectedDate" e-onchange="onDateChange(e)"></y-date-picker>
+        <br>
+
+        <y-radio a-type="1" a-options="checkboxList"></y-radio>
+        <!--t-type为显示的类型，t-percent为初始百分比，t-height为高度-->
+
+        <y-radio a-type="2" a-options="checkboxList"></y-radio>
+
+        <y-radio a-type="1" a-options="checkboxList" a-verticality="true"></y-radio>
+        <br>
+        <y-table a-head-list="headList" a-row-list="rowDataList"></y-table>
+        <br>
+        <button style="margin: 20px" class="ant-btn ant-btn-primary"  ng-click="cc()">cc</button>
+        <y-message a-time="1" a-type="1" a-text="zeng1121312321"></y-message>
+    </div>
+
+
+
+</body>
+</html>

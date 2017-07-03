@@ -1,0 +1,18 @@
+<div>
+    <div class="ant-checkbox-group">
+        <label ng-repeat="item in iOptions" class="ant-checkbox-wrapper">
+            <span class="ant-checkbox {{ item.checked ? 'ant-checkbox-checked' : ''}} {{ item.disabled ? 'ant-checkbox-disabled' : ''}}">
+                <input type="checkbox" ng-click="checkOn(item)" class="ant-checkbox-input" value="on"/>
+                <span class="ant-checkbox-inner"></span>
+            </span>
+            <span>{{item.name}}</span>
+        </label>
+    </div>
+    <div>
+        <button ng-if="iComm.showCheckAllBtn" class="ant-btn ant-btn-primary" ng-click="checkAll()">全选</button>
+        <button ng-if="iComm.showCheckNoneBtn" class="ant-btn ant-btn-primary" ng-click="checkNone()">全不选</button>
+        <button ng-if="iComm.showCheckReverseBtn" class="ant-btn ant-btn-primary" ng-click="checkReverse()">反选</button>
+        <button ng-if="iComm.showDisabledAllBtn" class="ant-btn ant-btn-primary" ng-click="disabledAll()">禁用</button>
+        <button ng-if="iComm.showDisabledNoneBtn" class="ant-btn ant-btn-primary" ng-click="disableNone()">可用</button>
+    </div>
+</div>

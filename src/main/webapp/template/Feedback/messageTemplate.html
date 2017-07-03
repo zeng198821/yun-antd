@@ -1,0 +1,10 @@
+<div  class="ant-message" >
+    <div ng-if="tIfDisplay" class="ant-message-notice">
+        <div class="ant-message-notice-content">
+            <div class="ant-message-custom-content {{iType=='1' ? 'ant-message-success':''}} {{iType=='2' ? 'ant-message-error':''}} {{iType=='3' ? 'ant-message-warning':''}} ">
+                <i class="anticon {{iType=='1' ? 'anticon-check-circle':''}} {{iType=='2' ? 'anticon-close-circle':''}} {{iType=='3' ? 'anticon-exclamation-circle':''}}"></i>
+                <span>{{iText}}</span>
+            </div>
+        </div>
+    </div>
+</div>

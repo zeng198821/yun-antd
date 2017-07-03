@@ -1,0 +1,32 @@
+<div>
+    <div class="ant-progress ant-progress-line {{iType != 4 ? 'ant-progress-show-info' : ' '}} {{iType == 1 || iType == 4 ? 'ant-progress-status-normal' : ' '}} {{iType == 3 ? (percent == 100 ? 'ant-progress-status-success' : 'ant-progress-status-exception' ) : ' '}} {{iType == 2 ? 'ant-progress-status-active' : ' '}}">
+        <div>
+            <div class="ant-progress-outer">
+                <div class="ant-progress-inner">
+                    <div class="ant-progress-bg" style="width:{{ iPercent}}%; height: {{ iCrude * 2 }}px;"></div>
+                </div>
+            </div><span ng-if="iType != 4" class="ant-progress-text"><span ng-if="iType == 1 || iType == 2">{{iPercent}}%</span><i ng-if="(iType == 3) && iPercent < 100" class="anticon anticon-cross-circle"></i><i ng-if="(iType == 3) && iPercent >= 100" class="anticon anticon-check-circle"></i></span>
+        </div>
+    </div>
+
+    <div ng-if="" class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info">
+        <div class="ant-progress-inner" style="width: {{iWidth}}px; height: {{iWidth}}px; font-size: {{iWidth / 20 * 5}}px;">
+            <svg class="ant-progress-circle " viewBox="-5 -5 110 110">
+                <path class="ant-progress-circle-trail" d="M 50,50 m 0,-47
+                                a 47,47 0 1 1 0,94
+                                a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="{{iCrude}}" fill-opacity="0"
+                                style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>
+                <path class="" d="M 50,50 m 0,-47
+                                 a 47,47 0 1 1 0,94
+                                 a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="{{showColor}}" stroke-width="{{iCrude}}" fill-opacity="0"
+                                 style="stroke-dasharray: {{tDasharray}}px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>
+            </svg>
+            <span class="ant-progress-text">
+                <span ng-if="iType == 1 || (iType == 3 && aPercent < 100)" style=" {{'color:' + showColor + ';'}}">{{aPercent}}%</span>
+                <i ng-if="iType == 2 && aPercent < 100" class="anticon anticon-cross" style="{{ 'color: '+showColor+';'}}"></i>
+                <i ng-if="(iType == 2 || iType == 3) && aPercent >= 100" class="anticon anticon-check" style=" {{'color:'+showColor +';'}}"></i>
+                <span ng-if="iType == 4" style="color: {{showColor}};font-size: {{rWH / 20 * 5 / 1.5}}px;">{{showContent}}</span>
+            </span>
+        </div>
+    </div>
+</div>
