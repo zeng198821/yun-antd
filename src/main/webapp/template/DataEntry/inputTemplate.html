@@ -1,10 +1,11 @@
 <div>
-    <span ng-if="!aTextarea && aIcon"  class="ant-input-affix-wrapper">
-        <span ng-if="aIcon" class="ant-input-prefix">
+    <span ng-if="(!aTextarea || aTextarea != 'true') && aIcon"  class="ant-input-affix-wrapper">
+        <span class="ant-input-prefix">
             <i class="anticon anticon-{{aIcon}}"></i>
         </span>
-            <input class="ant-input" ng-model="aValue" style="{{'width:' + aWidth + 'px;'}}" placeholder="{{aPlaceholder}}"  >
+            <input class="ant-input" ng-model="$parent.aValue" style="{{'width:' + aWidth + 'px;'}}" placeholder="{{aPlaceholder}}"  >
     </span>
-        <input class="ant-input" ng-if="!aTextarea && !aIcon"  ng-model="aValue" style="{{'width:' + aWidth + 'px;'}}"  placeholder="{{aPlaceholder}}" >
-        <textarea ng-if="aTextarea" class="ant-input" placeholder="{{aPlaceholder}}" style="{{'width:' + aWidth + 'px;'}}" ng-model="aValue" ></textarea>
+
+        <input class="ant-input" ng-if="(!aTextarea || aTextarea != 'true') && !aIcon"  ng-model="$parent.aValue" style="{{'width:' + aWidth + 'px;'}}"  placeholder="{{aPlaceholder}}" >
+        <textarea ng-if="aTextarea == 'true' " class="ant-input" placeholder="{{aPlaceholder}}" style="{{'width:' + aWidth + 'px;'}}" ng-model="$parent.aValue" ></textarea>
 </div>

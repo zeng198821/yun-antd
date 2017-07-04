@@ -424,9 +424,11 @@ angular.module('yDataEntry',[])
             scope: {
                 aMaxLength:'@',
                 aMinLength:'@',
+                aPlaceholder:'@',
                 aValue:"=",
                 aWidth:'@',
                 aIcon:'@',
+                aTextarea:"@",
                 eOnchange :"&"
             },
             transclude: true,
