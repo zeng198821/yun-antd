@@ -1,31 +1,33 @@
 <div>
-    <div class="ant-progress ant-progress-line {{iType != 4 ? 'ant-progress-show-info' : ' '}} {{iType == 1 || iType == 4 ? 'ant-progress-status-normal' : ' '}} {{iType == 3 ? (percent == 100 ? 'ant-progress-status-success' : 'ant-progress-status-exception' ) : ' '}} {{iType == 2 ? 'ant-progress-status-active' : ' '}}">
-        <div>
-            <div class="ant-progress-outer">
-                <div class="ant-progress-inner">
-                    <div class="ant-progress-bg" style="width:{{ iPercent}}%; height: {{ iCrude * 2 }}px;"></div>
-                </div>
-            </div><span ng-if="iType != 4" class="ant-progress-text"><span ng-if="iType == 1 || iType == 2">{{iPercent}}%</span><i ng-if="(iType == 3) && iPercent < 100" class="anticon anticon-cross-circle"></i><i ng-if="(iType == 3) && iPercent >= 100" class="anticon anticon-check-circle"></i></span>
-        </div>
+    <div ng-if="aMode == 'L' || aMode == 'l' " style="{{'width:'+aWidth+'px;'}}" class="ant-progress ant-progress-line {{aType != 4 ? 'ant-progress-show-info' : ' '}} {{aType == 1 || aType == 4 ? 'ant-progress-status-normal' : ' '}} {{aType == 3 ? (aPercent == 100 ? 'ant-progress-status-success' : 'ant-progress-status-exception' ) : ' '}} {{aType == 2 ? 'ant-progress-status-active' : ' '}}">
+        <div class="ant-progress-outer">
+            <div class="ant-progress-inner">
+                <div class="ant-progress-bg" style="{{'width:' + aPercent + '%; '}} {{'height:'+ (aCrude * 2) + 'px;'}} "></div>
+            </div>
+        </div><span ng-if="aType != 4" class="ant-progress-text">
+            <span ng-if="aType == 1 || aType == 2">{{aPercent}}%</span>
+            <i ng-if="(aType == 3) && iPercent < 100" class="anticon anticon-cross-circle"></i>
+            <i ng-if="(aType == 3) && iPercent >= 100" class="anticon anticon-check-circle"></i>
+        </span>
     </div>
 
-    <div ng-if="" class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info">
-        <div class="ant-progress-inner" style="width: {{iWidth}}px; height: {{iWidth}}px; font-size: {{iWidth / 20 * 5}}px;">
+    <div ng-if="aMode == 'C' || aMode == 'c'" class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info">
+        <div class="ant-progress-inner" style="width: {{aWidth}}px; height: {{aWidth}}px; font-size: {{aWidth / 20 * 5}}px;">
             <svg class="ant-progress-circle " viewBox="-5 -5 110 110">
                 <path class="ant-progress-circle-trail" d="M 50,50 m 0,-47
                                 a 47,47 0 1 1 0,94
-                                a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="{{iCrude}}" fill-opacity="0"
+                                a 47,47 0 1 1 0,-94" stroke="#f3f3f3" stroke-width="{{aCrude}}" fill-opacity="0"
                                 style="stroke-dasharray: 295.31px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>
                 <path class="" d="M 50,50 m 0,-47
                                  a 47,47 0 1 1 0,94
-                                 a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="{{showColor}}" stroke-width="{{iCrude}}" fill-opacity="0"
+                                 a 47,47 0 1 1 0,-94" stroke-linecap="round" stroke="{{aPercent == 100 ? aLoadDoneColor:aLoadingColor}}" stroke-width="{{aCrude}}" fill-opacity="0"
                                  style="stroke-dasharray: {{tDasharray}}px, 295.31px; stroke-dashoffset: -0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s;"></path>
             </svg>
             <span class="ant-progress-text">
-                <span ng-if="iType == 1 || (iType == 3 && aPercent < 100)" style=" {{'color:' + showColor + ';'}}">{{aPercent}}%</span>
-                <i ng-if="iType == 2 && aPercent < 100" class="anticon anticon-cross" style="{{ 'color: '+showColor+';'}}"></i>
-                <i ng-if="(iType == 2 || iType == 3) && aPercent >= 100" class="anticon anticon-check" style=" {{'color:'+showColor +';'}}"></i>
-                <span ng-if="iType == 4" style="color: {{showColor}};font-size: {{rWH / 20 * 5 / 1.5}}px;">{{showContent}}</span>
+                <span ng-if="aType == 1 || (aType == 3 && aPercent < 100)" style=" {{'color:' + (aPercent == 100 ? aLoadDoneColor:aLoadingColor) + ';'}}">{{aPercent}}%</span>
+                <i ng-if="aType == 2 && aPercent < 100" class="anticon anticon-cross" style="{{ 'color: '+ (aPercent == 100 ? aLoadDoneColor:aLoadingColor) +';'}}"></i>
+                <i ng-if="(aType == 2 || aType == 3) && aPercent >= 100" class="anticon anticon-check" style=" {{'color:'+ (aPercent == 100 ? aLoadDoneColor:aLoadingColor) +';'}}"></i>
+                <span ng-if="aType == 4" style=" {{ 'color:' + (aPercent == 100 ? aLoadDoneColor:aLoadingColor) +';'}}  {{ 'font-size:' + (aWidth / 20 * 5 / 1.5) + 'px;'}}">{{tShowContent}}</span>
             </span>
         </div>
     </div>

@@ -1,0 +1,10 @@
+<div>
+    <span ng-if="!aTextarea && aIcon"  class="ant-input-affix-wrapper">
+        <span ng-if="aIcon" class="ant-input-prefix">
+            <i class="anticon anticon-{{aIcon}}"></i>
+        </span>
+            <input class="ant-input" ng-model="aValue" style="{{'width:' + aWidth + 'px;'}}" placeholder="{{aPlaceholder}}"  >
+    </span>
+        <input class="ant-input" ng-if="!aTextarea && !aIcon"  ng-model="aValue" style="{{'width:' + aWidth + 'px;'}}"  placeholder="{{aPlaceholder}}" >
+        <textarea ng-if="aTextarea" class="ant-input" placeholder="{{aPlaceholder}}" style="{{'width:' + aWidth + 'px;'}}" ng-model="aValue" ></textarea>
+</div>

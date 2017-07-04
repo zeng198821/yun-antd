@@ -1,7 +1,7 @@
 /**
  * Created by zeng on 17-7-3.
  */
-var app = angular.module("myApp",['yDataEntry','yDataDisplay','yFeedback']);
+var app = angular.module("myApp",['yDataEntry','yDataDisplay','yFeedback','yun.feedback']);
 app.controller("myCtrl", function ($scope) {
     $scope.checkboxList = [
         {"id":1,"name":"Apple","checked":true,"disabled":true},
@@ -17,9 +17,14 @@ app.controller("myCtrl", function ($scope) {
         "showDisabledAllBtn" : false,
         "showDisabledNoneBtn" : false
     }
+
     $scope.age=2;
+    $scope.name1 = 'abc';
     $scope.cc = function () {
         $scope.age=3;
+    }
+    $scope.textChange=function (e){
+        console.log(e);
     }
     $scope.checkValue="";
     $scope.selectedDate = "";

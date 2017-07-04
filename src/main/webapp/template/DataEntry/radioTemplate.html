@@ -1,6 +1,6 @@
 <div>
-    <div ng-if="iType == 1" class="ant-radio-group">
-        <label ng-click="checkOn(item)" ng-repeat="item in iOptions" class="ant-radio-wrapper  {{ item.checked ? 'ant-radio-wrapper-checked' : ''}} {{ item.disabled ? 'ant-radio-wrapper-disabled' : ''}}" style="{{iVerticality ? 'display: block; height: 30px; line-height: 30px;':'' }}">
+    <div ng-if="aType == 1" class="ant-radio-group">
+        <label ng-click="checkOn(item)" ng-repeat="item in aOptions" class="ant-radio-wrapper  {{ item.checked ? 'ant-radio-wrapper-checked' : ''}} {{ item.disabled ? 'ant-radio-wrapper-disabled' : ''}}" style="{{aVerticality ? 'display: block; height: 30px; line-height: 30px;':'' }}">
             <span class="ant-radio {{ item.checked ? 'ant-radio-checked' : ''}} {{ item.disabled ? 'ant-radio-disabled' : ''}}">
                 <input type="radio"  class="ant-radio-input" value="on">
                 <span class="ant-radio-inner"></span>
@@ -8,8 +8,8 @@
             <span>{{item.name}}</span>
         </label>
     </div>
-    <div ng-if="iType == 2"  class="ant-radio-group {{ iSize == 1 ? 'ant-radio-group-large' : ''}} {{ iSize == 2 ? 'ant-radio-group-small' : ''}}" >
-        <label ng-click="checkOn(item)" ng-repeat="item in iOptions" class="ant-radio-button-wrapper {{ item.checked ? 'ant-radio-button-wrapper-checked' : ''}} {{ item.disabled ? 'ant-radio-button-wrapper-disabled' : ''}}" >
+    <div ng-if="aType == 2"  class="ant-radio-group {{ aSize == 1 ? 'ant-radio-group-large' : ''}} {{ aSize == 2 ? 'ant-radio-group-small' : ''}}" >
+        <label ng-click="checkOn(item)" ng-repeat="item in aOptions" class="ant-radio-button-wrapper {{ item.checked ? 'ant-radio-button-wrapper-checked' : ''}} {{ item.disabled ? 'ant-radio-button-wrapper-disabled' : ''}}" >
         <span class="ant-radio-button {{ item.checked ? 'ant-radio-button-checked' : ''}} {{ item.disabled ? 'ant-radio-button-disabled' : ''}}">
             <input type="radio" class="ant-radio-button-input" value="on">
             <span class="ant-radio-button-inner"></span>

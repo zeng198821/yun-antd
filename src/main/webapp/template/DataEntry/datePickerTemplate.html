@@ -1,9 +1,9 @@
 <div>
     <div class="ant-calendar-picker" >
-        <input readonly="" ng-model="iValue" placeholder="请选择日期" class="ant-calendar-picker-input ant-input">
+        <input readonly="" ng-model="aValue" placeholder="请选择日期" class="ant-calendar-picker-input ant-input">
         <span class="ant-calendar-picker-icon"></span>
     </div>
-    <div ng-show="showDetail" style="position: absolute; top: 0px; left: 0px; width: 100%;">
+    <div ng-show="tShowDetail" style="position: absolute; top: 0px; left: 0px; width: 100%;">
         <div class="ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft" style=" {{'top:'+ (iOffset.top + iOffset.height) + 'px;'}} {{ 'left:' + (iOffset.left) + 'px;'}}">
             <div class="ant-calendar" tabindex="0">
                 <div class="ant-calendar-panel">
@@ -55,7 +55,7 @@
                                 </thead>
                                 <tbody class="ant-calendar-tbody">
                                 <tr role="row" class="" ng-repeat="tmpRow in iCalArr">
-                                    <td  ng-repeat="tmp in tmpRow" title="{{tmp.date.Format(iFormat)}}" class="ant-calendar-cell {{ tmp.isThisMonth &&  tmp.date.getDate() == iCurrDate.getDate() ? 'ant-calendar-selected-date ant-calendar-selected-day':''}} {{ tmp.date.getMonth() == today.getMonth() &&  tmp.date.getDate() == today.getDate() ?'ant-calendar-today':''}}{{ tmp.isThisMonth ? '': 'ant-calendar-last-month-cell'}} ">
+                                    <td  ng-repeat="tmp in tmpRow" title="{{tmp.date.Format(aFormat)}}" class="ant-calendar-cell {{ tmp.isThisMonth &&  tmp.date.getDate() == iCurrDate.getDate() ? 'ant-calendar-selected-date ant-calendar-selected-day':''}} {{ tmp.date.getMonth() == today.getMonth() &&  tmp.date.getDate() == today.getDate() ?'ant-calendar-today':''}}{{ tmp.isThisMonth ? '': 'ant-calendar-last-month-cell'}} ">
                                         <div class="ant-calendar-date" ng-click="select(tmp.date)" >{{tmp.date.getDate()}}</div>
                                     </td>
                                 </tr>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="ant-calendar-footer">
                             <span class="ant-calendar-footer-btn">
-                                <a class="ant-calendar-today-btn " title="{{iCurrDate.Format(iFormat)}}">Today</a>
+                                <a class="ant-calendar-today-btn " title="{{iCurrDate.Format(aFormat)}}">Today</a>
                             </span>
                         </div>
                     </div>

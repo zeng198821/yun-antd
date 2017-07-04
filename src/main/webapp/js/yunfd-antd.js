@@ -4,6 +4,140 @@
 
 var templatePath='/template';
 
+angular.module('yFeedback',[])
+    .directive('yMessage',function () {
+        return{
+            templateUrl:templatePath+'/Feedback/messageTemplate.html',
+            replace: true,
+            require: '?ngModel',
+            scope: {
+                aTime:'@',
+                aType:"@",
+                aText:'@',
+            },
+            transclude: true,
+            controller: function ($scope) {
+                if($scope.aTime==""){
+                    $scope.tTime=1500;
+                }else
+                {
+                    $scope.tTime=parseInt($scope.aTime)*1000;
+                }
+                $scope.tIfDisplay=false;
+
+            },
+            link: function ($scope){
+                $scope.clickMesPro = function () {
+                    $scope.tIfDisplay=true;
+                    setTimeout(function () {
+                        $scope.tIfDisplay=false;
+                        $scope.$apply(function(){$scope.tIfDisplay = false;});
+                    },$scope.tTime);
+                }
+            }
+
+        };
+    })
+    .directive('yModal', function () {
+        return {
+            templateUrl:templatePath+'/Feedback/modalTemplate.html',
+            replace: true,
+            scope: {
+                aShow:'='
+            },
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
+                $scope.hideModal = function () {
+                    $scope.iShow = false;
+                }
+                $scope.ok = function () {
+                    $scope.hideModal();
+                }
+            },
+            link: function (scope, element, attrs) {
+
+            }
+        };
+    })
+    .directive("yProcess",function(){
+        return {
+            restrict: 'E',
+            templateUrl: templatePath+'/Feedback/processTemplate.html',
+            scope: {
+                // 显示类型
+                aType : "@",
+                // 宽度
+                aWidth : "@",
+                // 粗度
+                aCrude : "@",
+                // 百分比
+                aPercent : "=",
+                // 进行中颜色
+                aLoadingColor:"@",
+                // 已完成颜色
+                aLoadDoneColor:"@",
+                aMode:"@"
+            },
+            replace: true,
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
+                var tColorArr = [];
+                $scope.tShowContent = ""
+                $scope.tDasharray = 295.31 / 100 * $scope.aPercent;
+                if($scope.aProcessColor == null || $scope.aProcessColor == undefined){
+                    $scope.aLoadingColor="#108ee9";
+                }
+                if($scope.aDoneColor == null || $scope.aDoneColor == undefined){
+                    $scope.aLoadDoneColor="#00a854";
+                }
+
+                show();
+                $scope.$watch('aPercent',function (newVal,oldVal,$scope) {
+                    $scope.tDasharray = 295.31 / 100 * $scope.aPercent;
+                    show();
+                });
+
+                function show(){
+                    if($scope.aType == 4){
+                        if($scope.aPercent == 100){
+                            $scope.tShowContent = "完成加载";
+                        }else{
+                            $scope.tShowContent = "正在加载";
+                        }
+                        if($scope.aPercent == 0){
+                            $scope.tShowContent = "未加载";
+                        }
+                    }
+                }
+
+            }
+        };
+    })
+;
+
+
+angular.module('yun.feedback',['yFeedback'])
+    .factory('message',function () {
+        var tCurrShowNums=0;
+
+        var displayMessage = function (pTime,pText,pType) {
+            
+        };
+        
+        return {
+            showMessage :function (pTime,pText,pType) {
+                
+            }
+        };
+    })
+;
+
+
+
+
+
+
+
 
 angular.module('yDataEntry',[])
 
@@ -13,23 +147,23 @@ angular.module('yDataEntry',[])
             replace: true,
             require: '?ngModel',
             scope: {
-                iOptions : '=aOptions',
-                iValue : '=aValue',
-                iOnChange :"&eOnchange",
-                iComm : '=aComm'
+                aOptions : '=',
+                aValue : '=',
+                eOnChange :"&",
+                aComm : '='
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
                 $scope.countValue = function () {
                     var tmpValue="";
-                    for(var i in $scope.iOptions){
-                        var tmp = $scope.iOptions[i];
+                    for(var i in $scope.aOptions){
+                        var tmp = $scope.aOptions[i];
                         if(tmp.checked){
                             tmpValue = tmpValue + tmp.id+",";
                         }
                     }
                     tmpValue = tmpValue.substring(0,tmpValue.length - 1);
-                    $scope.iValue = tmpValue;
+                    $scope.aValue = tmpValue;
                     return tmpValue;
                 }
                 $scope.checkOn = function (e,isCheckOn){
@@ -43,35 +177,35 @@ angular.module('yDataEntry',[])
                         }
                     }
                     $scope.countValue();
-                    if($scope.iOnChange != null && $scope.iOnChange != undefined){
+                    if($scope.eOnChange != null && $scope.eOnChange != undefined){
                             //函数回调是需要注意拼装形参列表
-                            $scope.iOnChange({"e":e});
+                            $scope.eOnChange({"e":e});
                     }
                 };
                 $scope.checkAll = function () {
-                    for(var i in $scope.iOptions){
-                        $scope.checkOn($scope.iOptions[i],true);
+                    for(var i in $scope.aOptions){
+                        $scope.checkOn($scope.aOptions[i],true);
                     }
                 };
                 $scope.checkNone = function () {
-                    for(var i in $scope.iOptions){
-                        $scope.checkOn($scope.iOptions[i],false);
+                    for(var i in $scope.aOptions){
+                        $scope.checkOn($scope.aOptions[i],false);
                     }
                 };
                 $scope.checkReverse = function () {
-                    for(var i in $scope.iOptions){
-                        $scope.checkOn($scope.iOptions[i]);
+                    for(var i in $scope.aOptions){
+                        $scope.checkOn($scope.aOptions[i]);
                     }
                 };
                 $scope.disabledAll = function () {
-                    for(var i in $scope.iOptions){
-                        var tmp = $scope.iOptions[i];
+                    for(var i in $scope.aOptions){
+                        var tmp = $scope.aOptions[i];
                         tmp.disabled = true;
                     }
                 };
                 $scope.disableNone = function () {
-                    for(var i in $scope.iOptions){
-                        var tmp = $scope.iOptions[i];
+                    for(var i in $scope.aOptions){
+                        var tmp = $scope.aOptions[i];
                         tmp.disabled = false;
                     }
                 };
@@ -89,38 +223,26 @@ angular.module('yDataEntry',[])
             replace: true,
             require: '?ngModel',
             scope: {
-                iMax:'@aMax',
-                iMin:'@aMin',
-                iValue:"=aValue",
-                iOnchange :"&eOnchange"
+                aMax:'@',
+                aMin:'@',
+                aValue:"=",
+                eOnchange :"&"
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
-                $scope.vMax = parseInt($scope.iMax);
-                $scope.vMin = parseInt($scope.iMin);
-                if($scope.iValue == null || $scope.iValue == undefined){
-                    $scope.iValue = $scope.vMin;
+                $scope.tMax = parseInt($scope.aMax);
+                $scope.tMin = parseInt($scope.aMin);
+                if($scope.aValue == null || $scope.aValue == undefined){
+                    $scope.aValue = $scope.tMin;
                 }
-                $scope.$watch('iValue',function (newVal,oldVal,$scope) {
-                    if(isNaN(newVal) || $scope.vMax < newVal || $scope.vMin > newVal) {
-                        $scope.iValue = oldVal;
+                $scope.$watch('aValue',function (newVal,oldVal,$scope) {
+                    if(isNaN(newVal) || $scope.tMax < newVal || $scope.tMin > newVal) {
+                        $scope.aValue = oldVal;
                     }
-                    if($scope.iOnchange != null && $scope.iOnchange != undefined){
-                        $scope.iOnchange({"e":$scope.iValue});
+                    if($scope.eOnchange != null && $scope.eOnchange != undefined){
+                        $scope.eOnchange({"e":$scope.aValue});
                     }
                 });
-            },
-            link: function (scope, element, attrs) {
-                scope.up = function () {
-                    if(scope.vMax >= scope.iValue && scope.vMin <= scope.iValue){
-                        scope.iValue++;
-                    }
-                }
-                scope.down = function () {
-                    if(scope.vMax >= scope.iValue && scope.vMin <= scope.iValue){
-                        scope.iValue--;
-                    }
-                }
             }
         };
     })
@@ -131,27 +253,27 @@ angular.module('yDataEntry',[])
             replace: true,
             require: '?ngModel',
             scope: {
-                iValue:"=aValue",
-                iFormat:'@aFormat',
-                iOnchange :"&eOnchange"
+                aValue:"=",
+                aFormat:'@',
+                eOnchange :"&"
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
                 $scope.iOffset={"top":0,"left":0,"height":0,"width":0};
-                if($scope.iValue != null && $scope.iValue != undefined){
-                    $scope.iCurrDate = new Date($scope.iValue);
+                if($scope.aValue != null && $scope.aValue != undefined && $scope.aValue != ""){
+                    $scope.iCurrDate = new Date($scope.aValue);
                 }else {
                     $scope.iCurrDate = new Date();
                 }
-                if($scope.iFormat == null || $scope.iFormat == undefined){
-                    $scope.iFormat = "yyyy-MM-dd";
+                if($scope.aFormat == null || $scope.aFormat == undefined){
+                    $scope.aFormat = "yyyy-MM-dd";
                 }
                 $scope.today = new Date();
-                $scope.iValue="";
+                // $scope.aValue="";
                 $scope.iCalArr = $scope.iCurrDate.getCalDays();
                 $scope.$watch('iCurrDate',function (newVal,oldVal,$scope) {
-                    if($scope.iValue != newVal.Format($scope.iFormat)){
-                        $scope.iValue = newVal.Format($scope.iFormat);
+                    if($scope.aValue != newVal.Format($scope.aFormat)){
+                        $scope.aValue = newVal.Format($scope.aFormat);
                     }
                     $scope.iCalArr = newVal.getCalDays();
                 });
@@ -186,13 +308,13 @@ angular.module('yDataEntry',[])
                  * @param e 下拉框本对象
                  */
                 scope.showDatePickerDetail = function (e) {
-                    if(scope.showDetail){
-                        scope.showDetail = false;
+                    if(scope.tShowDetail){
+                        scope.tShowDetail = false;
                         return;
                     }else{
                         var tmpObj = $(tmpSelectObj);
                         copyOffset(tmpObj.offset(),tmpObj.outerHeight(),tmpObj.outerWidth());
-                        scope.showDetail = true;
+                        scope.tShowDetail = true;
                     }
                 };
 
@@ -215,11 +337,11 @@ angular.module('yDataEntry',[])
                  * @param id 被选中的ID值
                  */
                 scope.select = function (selected_date) {
-                    scope.showDetail = false;
+                    scope.tShowDetail = false;
                     scope.iCurrDate = selected_date;
-                    scope.iValue = selected_date.Format(scope.iFormat);
-                    if(scope.iOnchange != null && scope.iOnchange != undefined){
-                        scope.iOnchange({"e":scope.iValue});
+                    scope.eValue = selected_date.Format(scope.iFormat);
+                    if(scope.eOnchange != null && scope.eOnchange != undefined){
+                        scope.eOnchange({"e":scope.eValue});
                     }
                     //console.log(selected_date);
                     //scope.$apply();
@@ -247,7 +369,7 @@ angular.module('yDataEntry',[])
                  * 单击空白处直接隐藏下拉框
                  */
                 $('body').click(function(){
-                    scope.showDetail = false;
+                    scope.tShowDetail = false;
                     scope.$apply();
                 });
                 tmpSelectObj.on('click',function(e){
@@ -265,14 +387,14 @@ angular.module('yDataEntry',[])
             restrict: 'E',
             templateUrl: templatePath+'/DataEntry/radioTemplate.html',
             scope: {
-                iOptions : '=aOptions',
-                iType : '@aType',
+                aOptions : '=',
+                aType : '@',
                 // 展示类型 1 ： 2：
-                iVerticality : "@aVerticality",
+                aVerticality : "@",
 
-                iSize : "@aSize",
-                iValue : "=aValue",
-                iOnchange :"&eOnchange"
+                aSize : "@",
+                aValue : "=",
+                eOnchange :"&"
             },
             replace: true,
             transclude: true,
@@ -281,20 +403,50 @@ angular.module('yDataEntry',[])
                     if(e.disabled){
                         return;
                     }
-                    for(var i in $scope.iOptions){
-                        var tmp = $scope.iOptions[i];
+                    for(var i in $scope.aOptions){
+                        var tmp = $scope.aOptions[i];
                         tmp.checked = false;
                     }
                     e.checked = true;
-                    if($scope.iOnchange != null && $scope.iOnchange != undefined){
-                        $scope.iOnchange({"e":e.id});
+                    if($scope.eOnchange != null && $scope.eOnchange != undefined){
+                        $scope.eOnchange({"e":e.id});
                     }
                 };
             }
         };
-    });
+    })
 
-
+    .directive('yInput', function () {
+        return {
+            templateUrl:templatePath + '/DataEntry/inputTemplate.html',
+            replace: true,
+            require: '?ngModel',
+            scope: {
+                aMaxLength:'@',
+                aMinLength:'@',
+                aValue:"=",
+                aWidth:'@',
+                aIcon:'@',
+                eOnchange :"&"
+            },
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
+                // $scope.tMax = parseInt($scope.aMax);
+                // $scope.tMin = parseInt($scope.aMin);
+                // if($scope.aValue == null || $scope.aValue == undefined){
+                //     $scope.aValue = $scope.tMin;
+                // }
+                $scope.$watch('aValue',function (newVal,oldVal,$scope) {
+                    // if(isNaN(newVal) || $scope.tMax < newVal || $scope.tMin > newVal) {
+                    //     $scope.aValue = oldVal;
+                    // }
+                    if($scope.eOnchange != null && $scope.eOnchange != undefined){
+                        $scope.eOnchange({"e":newVal});
+                    }
+                });
+            }
+        };
+    })
 
 ;
 
@@ -323,115 +475,3 @@ angular.module('yDataDisplay',[])
     })
 ;
 
-angular.module('yFeedback',[])
-    .directive('yMessage',function () {
-        return{
-            templateUrl:templatePath+'/Feedback/messageTemplate.html',
-            replace: true,
-            require: '?ngModel',
-            scope: {
-                iTime:'@aTime',
-                iType:"@aType",
-                iText:'@aText',
-            },
-            transclude: true,
-            controller: function ($scope) {
-                if($scope.iTime==""){
-                    $scope.tTime=1500;
-                }else
-                {
-                    $scope.tTime=parseInt($scope.iTime)*1000;
-                }
-                $scope.tIfDisplay=false;
-
-            },
-            link: function ($scope){
-                $scope.clickMesPro = function () {
-                    $scope.tIfDisplay=true;
-                    setTimeout(function () {
-                        $scope.tIfDisplay=false;
-                        $scope.$apply(function(){$scope.tIfDisplay = false;});
-                    },$scope.tTime);
-                }
-            }
-
-        };
-    })
-    .directive('yModal', function () {
-        return {
-            templateUrl:templatePath+'/Feedback/modalTemplate.html',
-            replace: true,
-            scope: {
-                iShow:'=aShow'
-            },
-            transclude: true,
-            controller: function ($scope,$element,$attrs,$transclude) {
-                $scope.hideModal = function () {
-                    $scope.iShow = false;
-                }
-                $scope.ok = function () {
-                    $scope.hideModal();
-                }
-            },
-            link: function (scope, element, attrs) {
-
-            }
-        };
-    })
-    .directive("yProcess",function(){
-        return {
-            restrict: 'E',
-            templateUrl: templatePath+'/Feedback/processTemplate.html',
-            scope: {
-                // 显示类型
-                iType : "@aType",
-                // 宽度
-                iWidth : "@aWidth",
-                iCrude : "@aCrude",
-                // 初始百分比
-                iPercent : "=aPercent",
-                // 颜色
-                rColor : "=rColor"
-            },
-            replace: true,
-            transclude: true,
-            controller: function ($scope,$element,$attrs,$transclude) {
-                // alert($scope.vType +";"+ $scope.rPercent);
-                var seColor = $scope.rColor.split(",");
-                $scope.showColor = seColor[1];
-                show();
-                $scope.$watch('rPercent',function (newVal,oldVal,$scope) {
-                    $scope.tDasharray = 295.31 / 100 * $scope.rPercent;
-                    show();
-                });
-
-                function show(){
-                    if($scope.rPercent == 100 && seColor.length == 2){
-                        $scope.showColor = seColor[1];
-                    }else{
-                        $scope.showColor = seColor[0];
-                    }
-
-                    if($scope.rPercent == 0){
-                        $scope.showColor = "#CDCDB4";
-                    }
-
-                    if($scope.vType == 4){
-                        if($scope.rPercent == 100){
-                            $scope.showContent = "完成加载";
-                        }else{
-                            $scope.showContent = seColor[0];
-                            $scope.showContent = "正在加载";
-                        }
-
-                        if($scope.rPercent == 0){
-                            $scope.showContent = "#CDCDB4";
-                            $scope.showContent = "未加载";
-                        }
-                    }
-                }
-
-            }
-        };
-    })
-;

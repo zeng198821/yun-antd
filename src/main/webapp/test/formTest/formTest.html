@@ -13,25 +13,37 @@
 
 </head>
 <body>
-    <div ng-app="myApp" ng-controller="myCtrl">
+    <div style="margin: 10px;" ng-app="myApp" ng-controller="myCtrl">
         <y-checkbox  a-options="checkboxList" a-value="checkValue" a-comm="showBtnInfo" e-onchange="onCheckBoxChange(e)"></y-checkbox>
-        <y-input-number a-min="1" a-max="5" a-value="age" e-onchange="onNumValueChange(e)"></y-input-number>
+        <y-input-number a-min="1" a-max="10" a-value="age" e-onchange="onNumValueChange(e)"></y-input-number>
         {{age}}
         <br>
+        <input  style="width: 150px;"  placeholder="请输入云地址" ng-model="name1" class="ant-input">
+        <!--<textarea ng-if="aTextarea" type="textarea" placeholder="{{aPlaceholder}}" ng-model="aValue" class="ant-input" style="/*height: 56px; min-height: 46px; max-height: 118px; margin: 0px; width: 486px;*/"></textarea>-->
+
+        <br>
+        <y-input a-placeholder="请输入" a-width="200" a-value="name1" e-onchange="textChange(e)"></y-input>
+        <!--<y-input a-placeholder="请输入云地址" a-width="150" a-value="name1" e-onchange="textChange(e)"></y-input>-->
+        {{name1}}
+        <br>
+
         <y-date-picker a-value="selectedDate" e-onchange="onDateChange(e)"></y-date-picker>
         <br>
 
         <y-radio a-type="1" a-options="checkboxList"></y-radio>
         <!--t-type为显示的类型，t-percent为初始百分比，t-height为高度-->
 
-        <y-radio a-type="2" a-options="checkboxList"></y-radio>
+        <y-radio a-type="2" a-options="checkboxList" ></y-radio>
 
         <y-radio a-type="1" a-options="checkboxList" a-verticality="true"></y-radio>
         <br>
         <y-table a-head-list="headList" a-row-list="rowDataList"></y-table>
         <br>
         <button style="margin: 20px" class="ant-btn ant-btn-primary"  ng-click="cc()">cc</button>
-        <y-message a-time="1" a-type="1" a-text="zeng1121312321"></y-message>
+        <y-message a-time="10" a-type="1" a-text="zeng1121312321"></y-message>
+
+        <y-process a-width="200" a-percent="90" a-crude="5" a-type="2" a-mode="L"></y-process>
+
     </div>
 
 
