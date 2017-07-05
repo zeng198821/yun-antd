@@ -30,12 +30,12 @@
         <y-date-picker a-value="selectedDate" e-onchange="onDateChange(e)"></y-date-picker>
         <br>
 
-        <y-radio a-type="1" a-options="checkboxList"></y-radio>
+
         <!--t-type为显示的类型，t-percent为初始百分比，t-height为高度-->
 
-        <y-radio a-type="2" a-options="checkboxList" ></y-radio>
 
-        <y-radio a-type="1" a-options="checkboxList" a-verticality="true"></y-radio>
+        <y-radio a-type="1" a-options="checkboxList"></y-radio>
+
         <br>
         <y-table a-head-list="headList" a-row-list="rowDataList"></y-table>
         <br>
@@ -43,7 +43,20 @@
         <y-message a-time="10" a-type="1" a-text="zeng1121312321"></y-message>
 
         <y-process a-width="200" a-percent="90" a-crude="5" a-type="2" a-mode="L"></y-process>
+        <y-row>
+            <y-col a-size="12">
+                <y-row>
+                    <y-col a-size="12">
+                        <y-radio a-type="2"  a-options="checkboxList" ></y-radio>
+                    </y-col>
+                </y-row>
 
+            </y-col>
+            <y-col a-size="8">
+                <y-radio a-type="1" a-options="checkboxList" a-verticality="true"></y-radio>
+
+            </y-col>
+        </y-row>
     </div>
 
 

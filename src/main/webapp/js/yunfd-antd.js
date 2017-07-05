@@ -9,6 +9,7 @@ angular.module('yFeedback',[])
         return{
             templateUrl:templatePath+'/Feedback/messageTemplate.html',
             replace: true,
+            priority:500,
             require: '?ngModel',
             scope: {
                 aTime:'@',
@@ -42,6 +43,7 @@ angular.module('yFeedback',[])
         return {
             templateUrl:templatePath+'/Feedback/modalTemplate.html',
             replace: true,
+            priority:500,
             scope: {
                 aShow:'='
             },
@@ -79,6 +81,7 @@ angular.module('yFeedback',[])
                 aMode:"@"
             },
             replace: true,
+            priority:500,
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
                 var tColorArr = [];
@@ -133,11 +136,48 @@ angular.module('yun.feedback',['yFeedback'])
 ;
 
 
+angular.module('yLayout',[])
+    .directive('yRow', function () {
+        return {
+            templateUrl:templatePath+'/Layout/gridRowTemplate.html',
+            replace: false,
+            require: '?ngModel',
+            priority:100,
+            terminal:true,
+            transclude:true,
+            scope: {
 
+            },
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
+                console.log($element);
+            },
+            link: function (scope, element, attrs) {
 
+            }
+        };
+    })
+    .directive('yCol', function () {
+        return {
+            templateUrl:templatePath+'/Layout/gridColTemplate.html',
+            replace: false,
+            require: '?ngModel',
+            priority:200,
+            terminal:true,
+            transclude:true,
+            scope: {
+                aSize:'@',
+                aOffset:'@'
+            },
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
 
+            },
+            link: function (scope, element, attrs) {
 
-
+            }
+        };
+    })
 
 angular.module('yDataEntry',[])
 
@@ -146,6 +186,7 @@ angular.module('yDataEntry',[])
             templateUrl:templatePath+'/DataEntry/checkBoxTemplate.html',
             replace: true,
             require: '?ngModel',
+            priority:500,
             scope: {
                 aOptions : '=',
                 aValue : '=',
@@ -221,6 +262,7 @@ angular.module('yDataEntry',[])
         return {
             templateUrl:templatePath + '/DataEntry/inputNumberTemplate.html',
             replace: true,
+            priority:500,
             require: '?ngModel',
             scope: {
                 aMax:'@',
@@ -251,6 +293,7 @@ angular.module('yDataEntry',[])
         return {
             templateUrl:templatePath+'/DataEntry/datePickerTemplate.html',
             replace: true,
+            priority:500,
             require: '?ngModel',
             scope: {
                 aValue:"=",
@@ -397,6 +440,7 @@ angular.module('yDataEntry',[])
                 eOnchange :"&"
             },
             replace: true,
+            priority:500,
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
                 $scope.checkOn = function (e){
@@ -420,6 +464,7 @@ angular.module('yDataEntry',[])
         return {
             templateUrl:templatePath + '/DataEntry/inputTemplate.html',
             replace: true,
+            priority:500,
             require: '?ngModel',
             scope: {
                 aMaxLength:'@',
@@ -458,6 +503,7 @@ angular.module('yDataDisplay',[])
         return {
             templateUrl:templatePath+'/DataDisplay/tableTemplate.html',
             replace: true,
+            priority:500,
             scope: {
                 iHeadList:"=aHeadList",
                 iRowList:"=aRowList"

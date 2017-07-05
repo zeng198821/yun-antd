@@ -1,7 +1,7 @@
 /**
  * Created by zeng on 17-7-3.
  */
-var app = angular.module("myApp",['yDataEntry','yDataDisplay','yFeedback','yun.feedback']);
+var app = angular.module("myApp",['yDataEntry','yDataDisplay','yFeedback','yun.feedback','yLayout']);
 app.controller("myCtrl", function ($scope) {
     $scope.checkboxList = [
         {"id":1,"name":"Apple","checked":true,"disabled":true},
