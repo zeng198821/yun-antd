@@ -13,21 +13,22 @@
 
 </head>
 <body>
-    <div style="margin: 10px;" ng-app="myApp" ng-controller="myCtrl">
+    <div style="margin: 10px;"  ng-app="myApp" ng-controller="myCtrl">
+
         <y-checkbox  a-options="checkboxList" a-value="checkValue" a-comm="showBtnInfo" e-onchange="onCheckBoxChange(e)"></y-checkbox>
-        <y-input-number a-min="1" a-max="10" a-value="age" e-onchange="onNumValueChange(e)"></y-input-number>
-        {{age}}
+        <y-input-number a-min="1" a-max="10" a-value="stu.age" e-onchange="onNumValueChange(e)"></y-input-number>
+        {{stu.age}}
         <br>
-        <input  style="width: 150px;"  placeholder="请输入云地址" ng-model="name1" class="ant-input">
+        <input  style="width: 150px;"  placeholder="请输入云地址" ng-model="stu.name1" class="ant-input">
         <!--<textarea ng-if="aTextarea" type="textarea" placeholder="{{aPlaceholder}}" ng-model="aValue" class="ant-input" style="/*height: 56px; min-height: 46px; max-height: 118px; margin: 0px; width: 486px;*/"></textarea>-->
 
         <br>
-        <y-input a-icon="cloud" a-placeholder="请输入" a-textarea="false" a-width="200" a-value="name1" e-onchange="textChange(e)"></y-input>
+        <y-input a-icon="cloud" a-placeholder="请输入" a-textarea="false" a-width="200" a-value="stu.name1" e-onchange="textChange(e)"></y-input>
         <!--<y-input a-placeholder="请输入云地址" a-width="150" a-value="name1" e-onchange="textChange(e)"></y-input>-->
-        {{name1}}
+        {{stu.name1}}
         <br>
 
-        <y-date-picker a-value="selectedDate" e-onchange="onDateChange(e)"></y-date-picker>
+        <y-date-picker  a-format="yyyy-MM-dd" a-value="selectedDate" e-onchange="onDateChange(e)" ></y-date-picker>
         <br>
 
 

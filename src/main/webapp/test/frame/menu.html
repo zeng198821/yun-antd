@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/extend/DateExtend.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/yunfd-antd.js"></script>
+
+</head>
+<body ng-app="menuApp" ng-controller="menuCtrl">
+<y-mune a-options="menuList"></y-mune>
+</body>
+<script type="text/javascript">
+    var app = angular.module("menuApp",['yNavigation']);
+        app.controller("menuCtrl", function ($scope) {
+        $scope.menuList = [
+            {
+                "id":1,
+                "disabled":false,
+                "icon": "setting",
+                "title": "菜单1",
+                "url": "#",
+                "show": false,
+                "child": []
+            },
+            {
+                "id":2,
+                "disabled":false,
+                "icon": "appstore",
+                "title": "菜单2",
+                "show": false,
+                "url": "#",
+                "child": [{
+                    "id":4,
+                    "disabled":false,
+                    "icon": "heart",
+                    "title": "子菜单1",
+                    "url": "#",
+                    "show": false,
+                    "child": []
+                },
+                    {
+                        "id":5,
+                        "disabled":false,
+                        "icon": "poweroff",
+                        "title": "子菜单2",
+                        "show": false,
+                        "url": "#",
+                        "child": []
+                    },
+                    {
+                        "id":6,
+                        "disabled":false,
+                        "icon": "star",
+                        "title": "子菜单3",
+                        "show": false,
+                        "url": "#",
+                        "child": []
+                    }]
+            },
+            {
+                "id":3,
+                "disabled":true,
+                "icon": "download",
+                "title": "菜单3",
+                "show": false,
+                "url": "#",
+                "child": []
+            }
+        ];
+    });
+</script>
+
+</html>

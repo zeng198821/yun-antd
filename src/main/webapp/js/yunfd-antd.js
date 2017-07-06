@@ -135,6 +135,32 @@ angular.module('yun.feedback',['yFeedback'])
     })
 ;
 
+angular.module('yNavigation',[])
+    .directive('yMune', function () {
+        return {
+            templateUrl:templatePath+'/Navigation/menuTemplate.html',
+            replace: true,
+            scope: {
+                aOptions:"=",
+                eNavigation:'&'
+            },
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
+                $scope.show = function (e) {
+                    if(!e.disabled){
+                        e.show=!e.show;
+                        if((!e.child || e.child.length == 0) &&  $scope.eNavigation != null && $scope.eNavigation != undefined && e.url && e.url!="" && e.url!="#"){
+                            $scope.eNavigation({"e":e});
+                        }
+                    }
+                }
+            },
+            link: function (scope, element, attrs) {
+
+            }
+        };
+    })
+;
 
 angular.module('yLayout',[])
     .directive('yRow', function () {
@@ -150,7 +176,7 @@ angular.module('yLayout',[])
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
-                console.log($element);
+                $scope.iStyle=$element.attr('style');
             },
             link: function (scope, element, attrs) {
 
@@ -171,7 +197,7 @@ angular.module('yLayout',[])
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
-
+                $scope.iStyle=$element.attr('style');
             },
             link: function (scope, element, attrs) {
 
@@ -285,7 +311,19 @@ angular.module('yDataEntry',[])
                         $scope.eOnchange({"e":$scope.aValue});
                     }
                 });
-            }
+            },
+            link: function (scope, element, attrs) {
+            scope.up = function () {
+                if(scope.tMax >= scope.aValue && scope.tMin <= scope.aValue){
+                    scope.aValue++;
+                }
+            };
+            scope.down = function () {
+                if(scope.tMax >= scope.aValue && scope.tMin <= scope.aValue){
+                    scope.aValue--;
+                }
+            };
+        }
         };
     })
 

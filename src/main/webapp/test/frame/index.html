@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/extend/DateExtend.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/yunfd-antd.js"></script>
+    <script type="text/javascript" src="indexApp.js"></script>
+    <style type="text/css">
+        .body-right{
+            min-height: 500px;
+            margin: 0px;
+            padding: 0px;
+        }
+        iframe{
+            width: 100%;
+            scrolling:auto;
+            frameborder:0;
+        }
+    </style>
+</head>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+    <y-row style="height: auto;">
+        <y-col a-size="4">
+            <h1>检测系统</h1>
+        </y-col>
+        <y-col a-size="20"  >
+            <y-row>
+                <y-col a-size="4">
+                    <h2 ng-click="changeLeftmenu('default')" style="cursor: pointer;margin-top:1px; margin-bottom:1px;">功能中心</h2>
+                </y-col>
+                <y-col a-size="2" a-offset="8"><h2 style="margin-top:3px; margin-bottom:1px;">通知</h2></y-col>
+                <y-col a-size="2"><h2 ng-click="changeLeftmenu('other')" style="cursor: pointer; margin-top:3px; margin-bottom:1px;">其他</h2></y-col>
+                <y-col a-size="2"><h2 style="margin-top:3px; margin-bottom:1px;">检测记录</h2></y-col>
+                <y-col a-size="2"><h2 ng-click="changeLeftmenu('support')" style="cursor: pointer;margin-top:3px; margin-bottom:1px;">支撑模块</h2></y-col>
+                <y-col a-size="2"><h2 ng-click="changeLeftmenu('field')" style="cursor: pointer;margin-top:3px; margin-bottom:1px;">实施管理</h2></y-col>
+                <y-col a-size="1"><h2 style="margin-top:3px; margin-bottom:1px;">用户</h2></y-col>
+            </y-row>
+        </y-col>
+    </y-row>
+    <y-row>
+        <y-col a-size="4" >
+            <y-mune a-options="leftMenuList" e-navigation="menuNav(e)" > </y-mune>
+        </y-col>
+        <y-col a-size="20">
+            <iframe src="{{frame_content}}" class="body-right" frameborder="0" scrolling="auto"></iframe>
+        </y-col>
+    </y-row>
+</body>
+</html>

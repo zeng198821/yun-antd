@@ -18,8 +18,8 @@ app.controller("myCtrl", function ($scope) {
         "showDisabledNoneBtn" : false
     }
 
-    $scope.age=2;
-    $scope.name1 = 'abc';
+    $scope.stu={age:2,name1:'abc'};
+    //$scope.name1 = 'abc';
     $scope.cc = function () {
         $scope.age=3;
     }
