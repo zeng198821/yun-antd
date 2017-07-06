@@ -16,7 +16,8 @@ app.controller("myCtrl", function ($scope) {
         "showCheckReverseBtn" : true,
         "showDisabledAllBtn" : false,
         "showDisabledNoneBtn" : false
-    }
+    };
+    $scope.list=[{"id":"1","name":"zeng1","selected":true,"disabled":false},{"id":"2","name":"zeng2","selected":false,"disabled":false},{"id":"3","name":"zeng3","selected":false,"disabled":false}];
 
     $scope.stu={age:2,name1:'abc'};
     //$scope.name1 = 'abc';

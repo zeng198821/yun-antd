@@ -533,7 +533,109 @@ angular.module('yDataEntry',[])
         };
     })
 
-;
+    .directive('ySelect', function () {
+        return {
+            templateUrl:templatePath + '/DataEntry/selectTemplate.html',
+            replace: true,
+            require: '?ngModel',
+            scope: {
+                aValue:'=',
+                aOptions :'=',
+                eOnchange :"&"
+            },
+            transclude: true,
+            controller: function ($scope,$element,$attrs,$transclude) {
+                $scope.iOffset={"top":0,"left":0,"height":0,"width":0};
+                $scope.iDefaultVal = {"id":"","name":"","selected":true,"disabled":false};
+                $scope.tShowDetail = false;
+            },
+            link: function (scope, element, attrs) {
+                /**
+                 * 选项列表对象
+                 */
+                var tmpDetailObj = $(element).find('.ant-select-dropdown');
+                var tmpSelectObj = $(element).find('.ant-select');
+
+
+                /**
+                 * 拷贝下拉框控件位置和大小
+                 * @param offset_para 下拉框控件位置
+                 * @param outer_height 下拉框控件高度
+                 * @param outer_width 下拉框控件宽度
+                 */
+                function copyOffset(offset_para,outer_height,outer_width) {
+                    for(var i in scope.iOffset){
+                        if(offset_para[i] == null || offset_para[i] == undefined || offset_para[i] == ""){
+                            continue;
+                        }
+                        scope.iOffset[i] = offset_para[i];
+                    }
+                    if(outer_height != null && outer_height != undefined)
+                        scope.iOffset.height = outer_height;
+                    if(outer_width != null && outer_width != undefined)
+                        scope.iOffset.width = outer_width;
+                };
+
+                /**
+                 * 展现或隐藏选项列表
+                 * @param e 下拉框本对象
+                 */
+                scope.showSelectDetail = function (e) {
+                    if(scope.tShowDetail){
+                        scope.tShowDetail = false;
+                        return;
+                    }else{
+                        var tmpObj = $(tmpSelectObj);
+                        copyOffset(tmpObj.offset(),tmpObj.outerHeight(),tmpObj.outerWidth());
+                        scope.tShowDetail = true;
+                    }
+                    //scope.$apply();
+                };
+
+                /**
+                 * 展现或隐藏下拉框明细项
+                 * @param id 被选中的ID值
+                 */
+                scope.select = function (id) {
+                    for(var i=0;i<scope.aOptions.length;i++){
+                        var tmp = scope.aOptions[i];
+                        if(id === tmp.id){
+                            tmp.selected=true;
+                            scope.aValue = id;
+                            scope.iDefaultVal.selected = tmp.selected;
+                            scope.iDefaultVal.id = tmp.id;
+                            scope.iDefaultVal.name = tmp.name;
+                            scope.iDefaultVal.disabled = tmp.disabled;
+                        }else{
+                            tmp.selected=false;
+                        }
+                    }
+                    scope.tShowDetail = false;
+                    if(scope.eOnchange != null && scope.eOnchange != undefined){
+                        scope.eOnchange({"e":id});
+                    }
+                    //scope.$apply();
+                };
+
+                /**
+                 * 单击空白处直接隐藏下拉框
+                 */
+                $('body').click(function(){
+                    scope.tShowDetail = false;
+                    scope.$apply();
+                });
+                tmpSelectObj.on('click',function(e){
+                    //阻止底层冒泡
+                    e.stopPropagation();
+                    scope.showSelectDetail(e);
+                });
+
+            }
+        };
+    });
+
+
+
 
 
 angular.module('yDataDisplay',[])

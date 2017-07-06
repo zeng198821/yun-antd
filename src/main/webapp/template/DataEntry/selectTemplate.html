@@ -1,0 +1,19 @@
+<div style="width: 200px;">
+<div id="{{vId}}_sel" ng-click="showSelectDetail(this)" ng-blur="showSelectDetail(this)" class="ant-select ant-select-enabled {{tShowDetail ? 'ant-select-open' : ''}}" style="width: 120px;">
+    <div class="ant-select-selection ant-select-selection--single" >
+        <div class="ant-select-selection__rendered">
+            <div class="ant-select-selection-selected-value" style="display: block; opacity: 1;">{{iDefaultVal.name}}</div>
+        </div>
+        <span class="ant-select-arrow"  style="user-select: none;"><b></b></span>
+    </div>
+</div>
+<div ng-if="tShowDetail" style="position: absolute; top: 0px; left: 0px; width: {{iOffset.width}}px;">
+    <div  style="top: {{iOffset.top + iOffset.height}}px; left: {{iOffset.left}}px; width: 100%;" class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-topLeft">
+        <div style="overflow: auto;">
+            <ul class="ant-select-dropdown-menu ant-select-dropdown-menu-vertical  ant-select-dropdown-menu-root">
+                <li ng-click="select(tmp.id)" ng-repeat="tmp in aOptions" class="{{tmp.selected ?'ant-select-dropdown-menu-item-selected':''}} {{tmp.disabled ? 'ant-select-dropdown-menu-item-disabled':''}} ant-select-dropdown-menu-item" style="user-select: none;"> {{tmp.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
