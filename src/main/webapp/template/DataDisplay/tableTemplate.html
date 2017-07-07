@@ -7,7 +7,7 @@
                         <table class="">
                             <thead class="ant-table-thead">
                             <tr>
-                                <th ng-repeat="tmpHead in iHeadList" class="">
+                                <th ng-repeat="tmpHead in aHeadList" class="">
                                     <span>{{tmpHead.name}}</span>
                                 </th>
                                 <th class="">
@@ -16,8 +16,8 @@
                             </tr>
                             </thead>
                             <tbody class="ant-table-tbody">
-                            <tr ng-repeat=" tmpRow in  iRowList" class="ant-table-row  ant-table-row-level-0">
-                                <td ng-repeat="tmpHead in iHeadList" class="">
+                            <tr ng-repeat=" tmpRow in  aRowList" class="ant-table-row  ant-table-row-level-0">
+                                <td ng-repeat="tmpHead in aHeadList" class="">
                                     {{tmpRow[tmpHead.col]}}
                                 </td>
                                 <td class="">

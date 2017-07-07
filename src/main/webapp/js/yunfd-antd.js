@@ -85,6 +85,9 @@ angular.module('yFeedback',[])
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
                 var tColorArr = [];
+                if($scope.aWidth == null || $scope.aWidth == undefined){
+                    $scope.aWidth = 100;
+                }
                 $scope.tShowContent = ""
                 $scope.tDasharray = 295.31 / 100 * $scope.aPercent;
                 if($scope.aProcessColor == null || $scope.aProcessColor == undefined){
@@ -172,7 +175,7 @@ angular.module('yLayout',[])
             terminal:true,
             transclude:true,
             scope: {
-
+                aAlign:"@"
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
@@ -472,7 +475,6 @@ angular.module('yDataEntry',[])
                 aType : '@',
                 // 展示类型 1 ： 2：
                 aVerticality : "@",
-
                 aSize : "@",
                 aValue : "=",
                 eOnchange :"&"
@@ -493,6 +495,7 @@ angular.module('yDataEntry',[])
                     if($scope.eOnchange != null && $scope.eOnchange != undefined){
                         $scope.eOnchange({"e":e.id});
                     }
+                    $scope.aValue = e.id;
                 };
             }
         };
@@ -516,15 +519,19 @@ angular.module('yDataEntry',[])
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {
-                // $scope.tMax = parseInt($scope.aMax);
-                // $scope.tMin = parseInt($scope.aMin);
+                if($scope.aMaxLength != null && $scope.aMaxLength != undefined){
+                    $scope.tMax = parseInt($scope.aMaxLength);
+                }else{
+                    $scope.tMax=10000;
+                }
+
                 // if($scope.aValue == null || $scope.aValue == undefined){
                 //     $scope.aValue = $scope.tMin;
                 // }
                 $scope.$watch('aValue',function (newVal,oldVal,$scope) {
-                    // if(isNaN(newVal) || $scope.tMax < newVal || $scope.tMin > newVal) {
-                    //     $scope.aValue = oldVal;
-                    // }
+                     if(newVal!=null && newVal != undefined &&  $scope.tMax < newVal.length ) {
+                         $scope.aValue = oldVal;
+                     }
                     if($scope.eOnchange != null && $scope.eOnchange != undefined){
                         $scope.eOnchange({"e":newVal});
                     }
@@ -645,8 +652,8 @@ angular.module('yDataDisplay',[])
             replace: true,
             priority:500,
             scope: {
-                iHeadList:"=aHeadList",
-                iRowList:"=aRowList"
+                aHeadList:"=",
+                aRowList:"="
             },
             transclude: true,
             controller: function ($scope,$element,$attrs,$transclude) {

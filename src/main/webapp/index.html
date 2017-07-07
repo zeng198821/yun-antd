@@ -2,28 +2,156 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+    <title>index</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="/ant/css/antd.css" type="text/css"/>
-    <script type="text/javascript" src="/ant/js/antd.js"></script>
-    <script type="text/javascript" src="/ng/angular.js"></script>
-    <script type="text/javascript" src="/js/extend.js"></script>
-    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
-    <title>Title</title>
+    <script type="text/javascript" src="/js/angularJs/angular.js"></script>
+    <script type="text/javascript" src="/js/extend/DateExtend.js"></script>
+    <script type="text/javascript" src="/js/Jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/js/yunfd-antd.js"></script>
+    <script type="text/javascript" src="indexApp.js"></script>
 </head>
-<body>
-<div>
-
-    <Row>
-        <Col span={12}><a href="button/button.html" class="ant-btn ant-btn-primary">Button</a></Col>
-        <Col span={12}>col-12</Col>
-    </Row>
-    <Row>
-
-    </Row>
-    <Row>
-    </Row>
+<body ng-app="mainApp" ng-controller="mainCtrl">
+<div style="height: 100px;" align="center">
+    <div><h1>前端组件示例展示</h1></div>
+    <div><h2>通用属性 a-Value='xxx' xxx为变量名称(支持多级变量名称)</h2></div>
+    <div><h3>{{formData}}</h3></div>
 </div>
+<y
+<y-row>
+    <!--<y-col a-size="4" >-->
+
+        <!--<y-mune a-options="leftMenuList" e-navigation="menuNav(e)" > </y-mune>-->
+    <!--</y-col>-->
+    <y-col a-size="24">
+        <y-row>
+            <y-row>
+                <y-col a-size="5">
+                    <h4>文本框</h4>
+                    &lt;y-input a-icon="cloud" a-value="formData.a1"&gt;&lt;/y-input&gt;
+                    <br>a-icon="cloud" 可设置文本框前面的图标
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>文本域</h4>
+                    &lt;y-input a-textarea="true" a-value="formData.a2"&gt;&lt;/y-input&gt;
+                    <br>a-textarea="true" 设置属性为true即可
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>文本长度</h4>
+                    &lt;y-input a-max-length="10"  a-value="formData.a3" &gt;&lt;/y-input&gt;
+                    <br>a-max-length="10" 设置文本框最大长度为10
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>数字文本输入框</h4>
+                    &lt;y-input-number a-min="1" a-max="100"  a-value="formData.a4"&gt;&lt;/y-input-number&gt;
+                    <br>min="1" max="5" 设置当前输入的值上下限
+                </y-col>
+            </y-row>
+            <y-row >
+                <y-col a-size="5"><y-input a-icon="cloud" a-value="formData.a1"></y-input></y-col>
+                <y-col a-size="5" a-offset="1"><y-input a-textarea="true" a-value="formData.a2"></y-input></y-col>
+                <y-col a-size="5" a-offset="1"><y-input a-max-length="10" a-value="formData.a3"></y-input></y-col>
+                <y-col a-size="5" a-offset="1"><y-col a-size="3"><y-input-number a-min="1" a-max="100"  a-value="formData.a4"></y-input-number></y-col>
+            </y-row>
+        </y-row>
+        <y-row style="margin-top: 20px;">
+            <y-row>
+                <y-col a-size="5"><h4>下拉选择框</h4>
+                    &lt;y-select a-options="selectOptionsList" a-value="formData.a5"&gt;&lt;/y-select&gt;
+                    <br>a-options 是下拉选择框属性, selectOptionsList是数组对象
+                    <br>{"id":"1","name":"zeng1","selected":false,"disabled":false}
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>日期选择</h4>
+                    &lt;y-date-picker a-format="yyyy-MM-dd" a-value="formData.a6"&gt;&lt;/y-date-picker&gt;
+                    <br>a-textarea="true" 设置属性为true即可
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>横向普通单选</h4>
+                    &lt;y-radio a-options="radioboxList" a-type="1" a-value="formData.a7"&gt;&lt;/y-radio&gt;
+                    <br>a-options="radioboxList" a-options是单选框内容 radioboxList 是数组对象
+                    <br>{"id":1,"name":"Apple","checked":true,"disabled":true}
+                    <br> a-type="1" 是圆框选择
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>横向按钮单选</h4>
+                    &lt;y-radio a-options="radioboxList" a-type="1" a-value="formData.a7"&gt;&lt;/y-radio&gt;
+                    <br>a-options="radioboxList" a-options是单选框内容 radioboxList 是数组对象
+                    <br>{"id":1,"name":"Apple","checked":true,"disabled":true}
+                    <br> a-type="1" 是按钮式选择
+                </y-col>
+            </y-row>
+            <y-row>
+                <y-col a-size="5"><y-select a-options="selectOptionsList" a-value="formData.a5"></y-select></y-col>
+                <y-col a-size="5" a-offset="1"><y-date-picker a-format="yyyy-MM-dd" a-value="formData.a6"></y-date-picker></y-col>
+                <y-col a-size="5" a-offset="1"><y-radio a-options="radioboxList" a-type="1" a-value="formData.a7"></y-radio></y-col>
+                <y-col a-size="5" a-offset="1"><y-radio a-options="radioboxList" a-type="2" a-value="formData.a7"></y-radio></y-col>
+
+            </y-row>
+        </y-row>
+
+        <y-row style="margin-top: 20px;">
+            <y-row>
+                <y-col a-size="5">
+                    <h4>纵向单选</h4>
+                    &lt;y-radio a-options="radioboxList" a-type="1"  a-verticality="true" a-value="formData.a7"&gt;&lt;/y-radio&gt;
+                    <br>a-options="radioboxList" a-options是单选框内容 radioboxList 是数组对象
+                    <br>{"id":1,"name":"Apple","checked":true,"disabled":true}
+                    <br> a-type="1" 是圆框选择
+                    <br> a-verticality="true" 设置为纵向
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>多选</h4>
+                    &lt;y-checkbox a-options="checkboxList" a-value="formData.a8"&gt;&lt;/y-checkbox&gt;
+                    <br>a-options="checkboxList" 是数组对象
+                    <br> {"id":1,"name":"Apple","checked":true,"disabled":true}
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>线状进度条</h4>
+                    &lt;y-process a-type="2" a-crude="" a-mode="l" a-percent="formData.a4"&gt;&lt;/y-process&gt;
+                    <br>a-width="150" 为线状进度条宽度大小 默认100
+                    <br>a-type="2" 是展示类型
+                    <br> a-crude="3" 为进度条粗细值(1-6)
+                    <br> a-mode="l" 为线状展现
+                    <br> a-percent="formData.a4" 为进度条百分比，此处绑定的是数字文本框的值
+                </y-col>
+                <y-col a-size="5" a-offset="1">
+                    <h4>圆形进度条</h4>
+                    &lt;y-process a-type="2" a-crude="" a-mode="c" a-percent="formData.a4"&gt;&lt;/y-process&gt;
+                    <br>a-width="100" 为圆形进度框直径大小 默认100
+                    <br>a-type="2" 是展示类型
+                    <br> a-crude="3" 为进度条粗细值(1-6)
+                    <br> a-mode="c" 为圆形展现
+                    <br> a-percent="formData.a4" 为进度条百分比，此处绑定的是数字文本框的值
+                </y-col>
+            </y-row>
+            <y-row>
+                <y-col a-size="5"><y-radio a-options="radioboxList" a-type="1" a-verticality="true" a-value="formData.a7"></y-radio></y-col>
+                <y-col a-size="5" a-offset="1"><y-checkbox a-options="checkboxList" a-value="formData.a8"></y-checkbox></y-col>
+                <y-col a-size="5" a-offset="1"><y-process a-width="150" a-type="2" a-crude="3" a-mode="l" a-percent="formData.a4"></y-process></y-col>
+                <y-col a-size="5" a-offset="1"><y-process a-width="100" a-type="2" a-crude="6" a-mode="c" a-percent="formData.a4"></y-process></y-col>
+            </y-row>
+        </y-row>
+
+        <y-row style="margin-top: 20px;">
+            <y-row a-align="middle">
+                <y-col style="align-content: center;">
+                    <h3>表格展示</h3>
+                    <br>&lt;y-table a-head-list="headList" a-row-list="rowDataList"&gt;&lt;/y-table&gt;
+                    <br>a-head-list 为表头数组数据 {"name":"姓名","col":"name"},{"name":"年龄","col":"age"},{"name":"地址","col":"address"} name是表头展示的字符串 col为 a-row-list数组中对应属性的名称
+                    <br>a-row-list 为每行数据 {"name":"zeng1","age":"12","address":"浙江省杭州市"}
+                </y-col>
+            </y-row>
+            <y-row>
+                <y-col>
+                    <y-table a-head-list="headList" a-row-list="rowDataList"></y-table>
+                </y-col>
+            </y-row>
+        </y-row>
 
 
+    </y-col>
+</y-row>
 
 </body>
 </html>

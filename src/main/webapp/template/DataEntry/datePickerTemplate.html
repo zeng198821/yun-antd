@@ -1,10 +1,10 @@
-<div>
+<div style="position: relative;">
     <div class="ant-calendar-picker" >
         <input readonly="" ng-model="aValue" placeholder="请选择日期" class="ant-calendar-picker-input ant-input">
         <span class="ant-calendar-picker-icon"></span>
     </div>
     <div ng-show="tShowDetail" style="position: absolute; top: 0px; left: 0px; width: 100%;">
-        <div class="ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft" style=" {{'top:'+ (iOffset.top + iOffset.height) + 'px;'}} {{ 'left:' + (iOffset.left) + 'px;'}}">
+        <div class="ant-calendar-picker-container ant-calendar-picker-container-placement-bottomLeft" style=" {{'top:'+ iOffset.height + 'px;'}}left: 0px;">
             <div class="ant-calendar" tabindex="0">
                 <div class="ant-calendar-panel">
                     <div class="ant-calendar-input-wrap">
